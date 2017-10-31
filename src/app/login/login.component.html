@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row"> 
+    <div class="col-md-6 offset-md-3">
+      <div class="login-wrap">
+        <h4>Welcome to Events Across</h4>
+        <div class="alert alert-danger alert-dismissable" *ngIf="error_signin">
+          <a class="close" data-dismiss="alert" aria-label="close">×</a>
+          <strong>Error!</strong> {{error_signin}}
+        </div>
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input type="text" name="username" class="form-control" placeholder="Enter username" [(ngModel)]="username" #name="ngModel" minlength="4" required>
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+            <span *ngIf="name.errors.required" >Username is required.</span>
+            <span *ngIf="name.errors.minlength" >Username required at least 4 character</span>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" class="form-control" placeholder="Enter password" [(ngModel)]="password" #pwd="ngModel" minlength="6" required>
+            <div *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)" class="error-message">
+              <span *ngIf="pwd.errors.required" >Password is required.</span>
+              <span *ngIf="pwd.errors.minlength" >Password required at least 6 character</span>
+            </div>           
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary form-control" [disabled]="!userForm.form.valid">Signin</button>
+          </div>
+          <div class="form-group">
+            <button type="reset" class="btn btn-success form-control">Cancel</button>
+          </div>
+        </form>
+        <div class="form-group">
+          <a href="" routerLink="/forgot_password">Forgot Password ?</a>
+        </div>
+        <div class="form-group">
+          <a href="" routerLink="/signup">click here to sign up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

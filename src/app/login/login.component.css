@@ -1,0 +1,16 @@
+.login-wrap{
+	margin: 50px 0px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 42px;
+}
+.login-wrap h4{
+	text-align: center;
+    margin-bottom: 35px;
+    text-decoration: underline;
+}
+.error-message{
+	color: red;
+    margin-bottom: 10px;
+    display: inline-block;
+}

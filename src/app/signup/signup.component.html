@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row"> 
+    <div class="col-md-6 offset-md-3">
+      <div class="signup-wrap">
+        <h4>Signup to Events Across</h4>
+        <p>Already have an account ? <a href="" routerLink="/login">Signin</a></p>
+        <form (ngSubmit)="Registeruser()" #registrationForm="ngForm">
+          <div class="form-group">
+            <input type="text" name="username" class="form-control" placeholder="Enter username" required minlength="4" [(ngModel)]="username" #name=ngModel>
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+            <span *ngIf="name.errors.required" >Username is required.</span>
+            <span *ngIf="name.errors.minlength" >Username required at least 4 character</span>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" class="form-control" placeholder="Enter email"
+            [(ngModel)]="useremail" #email=ngModel required>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+              <span *ngIf="email.errors.required" >Email is required.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" class="form-control" placeholder="Enter password" required minlength="6" [(ngModel)]="password" #pwd=ngModel>
+          </div>
+          <div *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)" class="error-message">
+            <span *ngIf="pwd.errors.required" >Password is required.</span>
+            <span *ngIf="pwd.errors.minlength" >Password required at least 6 character</span>
+          </div>
+          <div class="form-group">
+            <input type="password" name="cpassword" class="form-control" placeholder="Enter confirm password" required minlength="6" [(ngModel)]="confirm_password" #cpwd=ngModel>
+          </div>
+          <div *ngIf="cpwd.invalid && (cpwd.dirty || cpwd.touched)" class="error-message">
+            <span *ngIf="cpwd.errors.required" >Confirm password is required.</span>
+            <span *ngIf="cpwd.errors.minlength" >Confirm password required at least 6 character</span>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary form-control" [disabled]="!registrationForm.form.valid">Signup</button>
+          </div>
+          <div class="form-group">
+            <button type="reset" class="btn btn-success form-control">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
