@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
       console.log(data);
       if (data["status"] == 200) {
         this.current_user = data;
+        this.loginService.setUserLoggedIn(true);
+        console.log(this.loginService.getUserLoggedIn())
         this.router.navigate(['/dashbord']);
       }else{
         this.error_signin = data["message"];

@@ -6,7 +6,12 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class LoginService {
 
-  constructor(private http: HttpClient) { }
+  private isUserLoggedIn;
+
+  constructor(private http: HttpClient) { 
+    this.isUserLoggedIn = false;
+  }
+
 
   results;
 
@@ -24,5 +29,13 @@ export class LoginService {
         });
       });
     return promise;
+  }
+
+  setUserLoggedIn(val){
+    this.isUserLoggedIn = val;
+  }
+
+  getUserLoggedIn(){
+    return this.isUserLoggedIn;
   }
 }
