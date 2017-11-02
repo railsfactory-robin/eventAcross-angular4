@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 main-image">
+      <img src="http://www.ace-smart.com/images/event.jpg">
+      <div class="search-box">
+        <input type="text" name="search" placeholder="Type to search an Event">
+        <i class="fa fa-search"></i>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="trending-events">
+        <h5>Trending Events</h5>
+      </div>
+      <div class="corousel-image-wrap">
+        <ngx-carousel [inputs]="carouselTile">
+          <ngx-tile NgxCarouselItem *ngFor="let Tile of carouselTileItems">
+            <img [src]="Tile" width="100%" height="100%">
+          </ngx-tile>
+          <button NgxCarouselPrev class='leftRs'>&lt;</button>
+          <button NgxCarouselNext class='rightRs'>&gt;</button>
+        </ngx-carousel>
+      </div> 
+    </div>
+  </div>
+</div>
