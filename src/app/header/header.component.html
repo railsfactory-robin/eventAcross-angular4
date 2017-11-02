@@ -1,6 +1,33 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Event Across</a>
+  <a class="navbar-brand" href="">Event Across</a>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/create_event" routerLinkActive="active">Create an Event</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/hiring" routerLinkActive="active">We're Hiring</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signup" routerLinkActive="active">Register</a>
+        </li>
+      </ul>
+    </form>
+  </div>
 </nav>
+
