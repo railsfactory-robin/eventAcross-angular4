@@ -9,7 +9,7 @@ export class LoginService {
   private isUserLoggedIn;
 
   constructor(private http: HttpClient) { 
-    this.isUserLoggedIn = false;
+    this.isUserLoggedIn;
   }
 
 
@@ -32,10 +32,10 @@ export class LoginService {
   }
 
   setUserLoggedIn(val){
-    this.isUserLoggedIn = val;
+    localStorage.setItem('is_logged_in', val);
   }
 
   getUserLoggedIn(){
-    return this.isUserLoggedIn;
+    return localStorage.getItem('is_logged_in');
   }
 }

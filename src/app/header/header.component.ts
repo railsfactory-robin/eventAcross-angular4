@@ -10,14 +10,20 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(private loginService: LoginService, private route: ActivatedRoute,
-  private router: Router) { }
-  login_status;
+    private router: Router) { }
+  private current_user;
+
   ngOnInit() {
-  	this.login_status = this.loginService.getUserLoggedIn();
+    if (localStorage.getItem('current_user')) {
+      this.current_user = JSON.parse(localStorage.getItem('current_user'));
+    }
   }
+
   logut(){
   	this.loginService.setUserLoggedIn(false);
-  	this.router.navigate(['/login']);
+    localStorage.removeItem('current_user');
+    localStorage.removeItem('is_logged_in');
+    this.router.navigate(['/login']);
   }
 
 }

@@ -1,0 +1,135 @@
+.search-box-top{
+	margin: 40px auto;
+	position: relative;
+}
+.search-box-top input{
+	width: 300px;
+    padding: 8px 10px 8px 60px;
+    border: 1px solid #867f7f;
+    border-radius: 11px;
+}
+.search-box-top i{
+	position: absolute;
+    top: 12px;
+    font-size: 20px;
+    left: 13px;
+}
+.other-event-outer{
+	border: 3px solid #000;
+    padding: 10px;
+    border-radius: 3px;
+}
+.other-event-wrap{
+	border: 1px solid #000;
+    padding: 6px;
+    margin: 15px;
+    border-radius: 3px;
+}
+.other-events-head{
+	display: inline-block;
+    position: absolute;
+    z-index: 100;
+    top: -9px;
+    left: 38px;
+    background: #fff;
+}
+.other-event-wrap button{
+	margin-left: 180px;
+}
+.other-event-wrap h6{
+	margin: 10px 2px;
+}
+.other-event-wrap .view-site{
+	display: block;
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+.other-event-wrap .view-more{
+	display: block;
+    width: 50%;
+    float: left;
+}
+.other-event-wrap .place-date{
+    margin-bottom: 20px;
+}
+.other-event-wrap .date-text{
+	display: block;
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+.other-event-wrap .place{
+	display: block;
+    width: 50%;
+    float: left;
+}
+.share-icon{
+    text-align: right;
+    margin: 10px;
+}
+.share-icon i{
+    font-size: 20px;
+}
+.event-content{
+    width: 72%;
+    line-height: 28px;
+    margin: 0px 0px 50px 0px;
+}
+.date-price .price{
+    float: left;
+    margin-left: 70px;
+}
+.place-share p{
+    float: left;
+    width: 95%;
+}
+.date-price span{
+    float: left;
+}
+.filter-wrap{
+    margin-right: 22px;
+}
+.filter-head{
+    border: 2px solid #ccc;
+    padding: 10px;
+    background-color: #1e2025
+}
+.filter-head h6{
+  width: 65px;
+  height: 19px;
+  font-family: ProximaNova;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #ffffff;
+}
+.filters{
+    background-color: #2f323a;
+    border: 2px solid #ccc;
+    border-top: 0px;
+    padding: 10px;
+    min-height: 427px;
+}
+.filters select{
+    -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 207px;
+}
+.filters-inner{
+    padding: 11px 0px;
+}

@@ -18,11 +18,14 @@ import { SignupService } from './signup/signup.service';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './authGuard.service';
+import { EventListComponent } from './event-list/event-list.component';
+import { EventListService } from './event-list/event-list.service';
 
 
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'event_list', component: EventListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'dashbord', component: DashbordComponent,canActivate: [AuthGuard] },
@@ -39,7 +42,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     FooterComponent,
     DashbordComponent,
-    HomeComponent
+    HomeComponent,
+    EventListComponent
   ],
   imports: [
    RouterModule.forRoot(
@@ -52,7 +56,7 @@ const appRoutes: Routes = [
     CarouselModule,
     NgxCarouselModule
   ],
-  providers: [LoginService,SignupService,AuthGuard],
+  providers: [LoginService,SignupService,AuthGuard,EventListService,HeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

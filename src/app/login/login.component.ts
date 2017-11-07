@@ -22,11 +22,10 @@ export class LoginComponent implements OnInit {
   onSubmit() { 
     this.loginService.getUser(this.username,this.password)
     .then(data => {
-      console.log(data);
       if (data["status"] == 200) {
         this.current_user = data;
+        localStorage.setItem('current_user', JSON.stringify(this.current_user));
         this.loginService.setUserLoggedIn(true);
-        console.log(this.loginService.getUserLoggedIn())
         this.router.navigate(['/dashbord']);
       }else{
         this.error_signin = data["message"];
