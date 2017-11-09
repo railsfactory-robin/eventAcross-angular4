@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import { Subject } from 'rxjs/Subject';
+
 import 'rxjs/add/operator/toPromise';
 
 
@@ -7,6 +10,7 @@ import 'rxjs/add/operator/toPromise';
 export class LoginService {
 
   private isUserLoggedIn;
+  private subject = new Subject<any>();
 
   constructor(private http: HttpClient) { 
     this.isUserLoggedIn;
@@ -37,5 +41,12 @@ export class LoginService {
 
   getUserLoggedIn(){
     return localStorage.getItem('is_logged_in');
+  }
+
+  getLoggedUser(): Observable<any> {
+    return this.subject.asObservable();
+  }
+  sendLoginUser(current_user: any) {
+    this.subject.next({ current_user });
   }
 }

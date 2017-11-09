@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent }from './../header/header.component'
 
 @Component({
   selector: 'app-dashbord',
@@ -8,10 +7,9 @@ import { HeaderComponent }from './../header/header.component'
 })
 export class DashbordComponent implements OnInit {
 
-  constructor(private comp: HeaderComponent) { }
 
   ngOnInit() {
-  	this.comp.ngOnInit();
+
   }
 
 }

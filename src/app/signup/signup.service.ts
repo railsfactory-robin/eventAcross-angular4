@@ -11,7 +11,6 @@ export class SignupService {
   results;
 
   registerUser(username,email,password,cpassword){
-    console.log(username , email, password, cpassword)
     const params = {name: username, email: email, password: password, password_confirmation: cpassword};
     let promise = new Promise((resolve, reject) => {
       this.http.post('http://api.eventsacross-stage.railsfactory.com/api/v1/users/signup',params)
