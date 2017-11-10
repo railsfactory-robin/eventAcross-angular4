@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private loginService: LoginService, private route: ActivatedRoute,
     private router: Router) { 
-      this.subscription = this.loginService.getLoggedUser().subscribe(current_user => { 
+      this.subscription = this.loginService.getLoggedUser().subscribe(current_user => {
         this.current_user = current_user.current_user;
        });
     }

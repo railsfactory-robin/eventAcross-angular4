@@ -56,7 +56,7 @@ const appRoutes: Routes = [
     CarouselModule,
     NgxCarouselModule
   ],
-  providers: [LoginService,SignupService,AuthGuard,EventListService,HeaderComponent],
+  providers: [LoginService,SignupService,AuthGuard,EventListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

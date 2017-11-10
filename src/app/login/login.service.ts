@@ -9,15 +9,10 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class LoginService {
 
-  private isUserLoggedIn;
   private subject = new Subject<any>();
 
-  constructor(private http: HttpClient) { 
-    this.isUserLoggedIn;
-  }
+  constructor(private http: HttpClient) {}
 
-
-  results;
 
   getUser(username,password){
     const params = {username: username ,password: password};

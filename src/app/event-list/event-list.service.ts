@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import 'rxjs/add/operator/toPromise';
+import { Observable } from "rxjs/Rx"
 
 
 @Injectable()
@@ -11,18 +11,7 @@ export class EventListService {
 
   
   getEvents(){
-    // const params = {on_dashboard: false};
-    let promise = new Promise((resolve, reject) => {
-      this.http.get('http://api.eventsacross-stage.railsfactory.com/api/v1/events?on_dashboard=false')
-      .toPromise()
-      .then(
-        res => {
-          resolve(res);
-        }
-        ).catch(err => {
-
-        });
-      });
-    return promise;
+    let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/events?on_dashboard=false';
+    return this.http.get(rootUrl).map(res => res);
   }
 }

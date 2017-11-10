@@ -8,15 +8,14 @@ import { EventListService } from './event-list.service';
 })
 export class EventListComponent implements OnInit {
 
- private event_list;
+ private event_lists;
 
   constructor(private eventListService: EventListService) { }
 
   ngOnInit() {
-  	this.eventListService.getEvents()
-  	.then(data => {
-      this.event_list = data["events"]
-    });
+    this.eventListService.getEvents().subscribe(event_list => {
+      this.event_lists = event_list["events"];
+    })
   }
 
 }
