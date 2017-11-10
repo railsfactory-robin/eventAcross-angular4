@@ -20,12 +20,14 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './authGuard.service';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventListService } from './event-list/event-list.service';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'event_list', component: EventListComponent },
+  { path: 'event_list/:id', component: EventDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'dashbord', component: DashbordComponent,canActivate: [AuthGuard] },
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     FooterComponent,
     DashbordComponent,
     HomeComponent,
-    EventListComponent
+    EventListComponent,
+    EventDetailsComponent
   ],
   imports: [
    RouterModule.forRoot(

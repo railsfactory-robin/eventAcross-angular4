@@ -26,6 +26,7 @@ export class SignupComponent implements OnInit {
   Registeruser(){
     this.signupService.registerUser(this.username,this.useremail,this.password,this.confirm_password)
     .then(data => {
+      console.log(data)
       if (data["status"] == 200) {
         this.current_user = {};
         this.current_user["token"] = data["token"].token;
