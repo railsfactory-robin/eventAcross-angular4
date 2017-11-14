@@ -16,13 +16,8 @@ export class EventListService {
     let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/events?on_dashboard=false';
     return this.http.get(rootUrl).map(res => res);
   }
-   getEventList() {
-    return this.getEvents();
-  }
-  setEventList(events) {
-    this.events = events;
-  }
-  getEventById(id){
-  	return this.getEventList();
+  getEventById(slug){
+  	let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/events/'+slug;
+  	return this.http.get(rootUrl).map(res => res);
   }
 }

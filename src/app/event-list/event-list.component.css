@@ -14,63 +14,6 @@
     font-size: 20px;
     left: 13px;
 }
-.other-event-outer{
-	border: 3px solid #000;
-    padding: 10px;
-    border-radius: 3px;
-}
-.other-event-wrap{
-	border: 1px solid #000;
-    padding: 6px;
-    margin: 15px;
-    border-radius: 3px;
-}
-.other-events-head{
-	display: inline-block;
-    position: absolute;
-    z-index: 100;
-    top: -9px;
-    left: 38px;
-    background: #fff;
-}
-.other-event-wrap button{
-	margin-left: 180px;
-}
-.other-event-wrap h6{
-	margin: 10px 2px;
-}
-.other-event-wrap .view-site{
-	display: block;
-    width: 50%;
-    float: left;
-    text-align: right;
-}
-.other-event-wrap .view-more{
-	display: block;
-    width: 50%;
-    float: left;
-}
-.other-event-wrap .place-date{
-    margin-bottom: 20px;
-}
-.other-event-wrap .date-text{
-	display: block;
-    width: 50%;
-    float: left;
-    text-align: right;
-}
-.other-event-wrap .place{
-	display: block;
-    width: 50%;
-    float: left;
-}
-.share-icon{
-    text-align: right;
-    margin: 10px;
-}
-.share-icon i{
-    font-size: 20px;
-}
 .event-content{
     width: 72%;
     line-height: 28px;

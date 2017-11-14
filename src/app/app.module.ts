@@ -21,6 +21,7 @@ import { AuthGuard } from './authGuard.service';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventListService } from './event-list/event-list.service';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { OthereventsComponent } from './common/otherevents/otherevents.component';
 
 
 
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     DashbordComponent,
     HomeComponent,
     EventListComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    OthereventsComponent
   ],
   imports: [
    RouterModule.forRoot(

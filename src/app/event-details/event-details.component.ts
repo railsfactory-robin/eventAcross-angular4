@@ -23,10 +23,10 @@ export class EventDetailsComponent implements OnInit {
   }
 
   getEvent(){
-  	const id = +this.route.snapshot.paramMap.get('id');
-  	this.eventlist.getEventById(id).subscribe(event => {
-  		this.event = event["events"]
-  		console.log(this.event)
+  	const slug = this.route.snapshot.paramMap.get('id');
+  	this.eventlist.getEventById(slug).subscribe(event => {
+  		this.event = event;
+  		console.log(event);
   	})
   }
 
