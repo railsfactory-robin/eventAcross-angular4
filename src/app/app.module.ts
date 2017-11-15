@@ -22,6 +22,8 @@ import { EventListComponent } from './event-list/event-list.component';
 import { EventListService } from './event-list/event-list.service';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { OthereventsComponent } from './common/otherevents/otherevents.component';
+import {FilterPipe, SortByPipe} from './common/filters'
+
 
 
 
@@ -48,7 +50,9 @@ const appRoutes: Routes = [
     HomeComponent,
     EventListComponent,
     EventDetailsComponent,
-    OthereventsComponent
+    OthereventsComponent,
+    FilterPipe,
+    SortByPipe
   ],
   imports: [
    RouterModule.forRoot(

@@ -15,8 +15,8 @@
         </div>
         <div class="filters">
           <div class="filters-inner">
-            <select>
-              <option>Category</option>
+            <select [(ngModel)]="eventname" (click)="filterData()">
+              <option value="test">test</option>
             </select>
           </div>
           <div class="filters-inner">
@@ -43,12 +43,12 @@
       </div>
     </div>
     <div class="col-md-5">
-      <div class="row"  *ngFor="let event of event_lists" routerLink="/event_list/{{event.slug}}">
+      <div class="row"  *ngFor="let event of event_lists | filter : eventname " routerLink="/event_list/{{event.slug}}">
         <div class="event-content">
           <h5>{{event.name}}</h5>
           <p>{{event.description}}</p>
           <div class="clearfix place-share">
-            <p>Place : {{event.locations[0].lane}} {{event.locations[0].city}}</p>
+            <p>Place : {{ event.locations[0] ? event.locations[0].lane : ''}} {{event.locations[0] ? event.locations[0].city : ''}}</p>
             <i class="fa fa-share-alt" aria-hidden="true"></i>
           </div>
           <div class="date-price clearfix">
