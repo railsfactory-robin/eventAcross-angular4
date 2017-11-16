@@ -23,8 +23,9 @@ import { EventListService } from './event-list/event-list.service';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { OthereventsComponent } from './common/otherevents/otherevents.component';
 import {FilterPipe, SortByPipe} from './common/filters'
-
-
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { NoopInterceptor } from './common/auth-header'
+import { DashboardService } from './dashbord/dashbord.service'
 
 
 const appRoutes: Routes = [
@@ -65,7 +66,11 @@ const appRoutes: Routes = [
     CarouselModule,
     NgxCarouselModule
   ],
-  providers: [LoginService,SignupService,AuthGuard,EventListService],
+  providers: [LoginService,SignupService,AuthGuard,EventListService,DashboardService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: NoopInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
