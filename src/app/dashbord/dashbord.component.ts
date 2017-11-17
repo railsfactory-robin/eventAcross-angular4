@@ -20,7 +20,7 @@ export class DashbordComponent implements OnInit {
 
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogDataExampleDialog, {
-      width: '350px',
+      width: '360px',
       data: {
         data: this.mybuckets
       }
@@ -40,10 +40,11 @@ export class DashbordComponent implements OnInit {
 })
 export class DialogDataExampleDialog implements OnInit{
   constructor(public dialogRef: MatDialogRef<DialogDataExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
+    @Inject(MAT_DIALOG_DATA) public data: any, private dashboardService: DashboardService) {}
   
   private buckets;
   private create_bucket;
+  private bucket_name;
   
   ngOnInit(){
    this.buckets = this.data.data.buckets;
@@ -57,5 +58,14 @@ export class DialogDataExampleDialog implements OnInit{
 
   openCreateBucket(){
     this.create_bucket = !this.create_bucket;
+    this.bucket_name = '';
+  }
+
+  createBucket(){
+    this.dashboardService.createBuckets(this.bucket_name).subscribe(data => {
+      console.log(data)
+      this.buckets.push({id: data["bucket"].id, name: data["bucket"].name})
+      this.openCreateBucket();
+    })
   }
 }

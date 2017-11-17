@@ -12,4 +12,12 @@ export class DashboardService {
     return this.http.get(rootUrl,{withCredentials: true})
     .map(res => res);
   }
+
+  createBuckets(name){
+  	let body = {name: name}
+  	let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/buckets/create-bucket';
+  	let params = new HttpParams().set('name', name);
+    return this.http.post(rootUrl, body, {withCredentials: true} )
+    .map(res => res);
+  }
 }
