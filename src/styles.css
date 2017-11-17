@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 
 body,h1,h2,h3,h4,h5,h6,p{
 	margin:0px;
@@ -21,4 +23,9 @@ body,h1,h2,h3,h4,h5,h6,p{
 /* close commented backslash hack */
 .main-layout{
 	background-color: #f1efef82;
+}
+.mat-dialog-container {
+    background: #fff;
+    color: rgba(0,0,0,.87);
+    border-radius: 10px !important;
 }

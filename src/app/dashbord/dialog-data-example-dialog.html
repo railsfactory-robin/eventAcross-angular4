@@ -1,0 +1,23 @@
+<div class="modal-custom">
+  <div class="close-btn">
+    <i class="fa fa-times" aria-hidden="true" (click)="onNoClick()"></i>
+  </div>
+  <h5 mat-dialog-title class="modal-heading">Choose a Bucket</h5>
+  <div mat-dialog-content>
+    <div class="bucket-wrap-outer">
+      <div class="bucket-wrap-inner" *ngFor="let bucket of buckets">
+        <span><input type="checkbox" name="" value="{{bucket.id}}"></span>
+        <span class="bkt-name">{{bucket.name}}</span>
+      </div>
+    </div>
+    <a class="create-link" *ngIf="!create_bucket" (click)="openCreateBucket()">Create a Bucket</a>
+    <div *ngIf="create_bucket" class="add-remove">
+      <input type="text" name="bucket">
+      <span><i class="fa fa-check" aria-hidden="true"></i></span>
+      <span><i class="fa fa-times" aria-hidden="true" (click)="openCreateBucket()"></i></span>
+    </div>
+    <div class="add-btn">
+      <button class="btn btn-primary">Add</button>
+    </div>
+  </div>
+</div>

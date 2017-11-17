@@ -29,7 +29,7 @@
       </ul>
       <ul class="navbar-nav mr-auto mt-2 mt-md-0" *ngIf="current_user">
         <li class="nav-item">
-          <a class="nav-link">
+          <a class="nav-link" routerLink="/dashbord" routerLinkActive="active">
             <i class="fa fa-user" aria-hidden="true" ></i> {{current_user.name}} </a>
         </li>
         <li class="nav-item">

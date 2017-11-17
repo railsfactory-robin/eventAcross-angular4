@@ -1,0 +1,96 @@
+.search-box-top{
+	margin: 40px auto;
+	position: relative;
+}
+.search-box-top input{
+	width: 300px;
+    padding: 8px 10px 8px 60px;
+    border: 1px solid #867f7f;
+    border-radius: 11px;
+}
+.search-box-top i{
+	position: absolute;
+    top: 12px;
+    font-size: 20px;
+    left: 13px;
+}
+.round-dp{
+    width: 55px;
+    border: 1px solid;
+    border-radius: 50%;
+    height: 55px;
+    margin: 10px 40px;
+}
+.round-dp img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.btn.btn-group{
+    padding: 10px 0px !important;
+    margin-top: 6px;
+}
+.notification{
+    text-align: right;
+    position: relative;
+}
+.notification i{
+    margin-top: 16px;
+    display: inline-block;
+    font-size: 40px;
+    text-align: right;
+    color: #a75f5f;
+}
+.notification span{
+    position: absolute;
+    color: #fff;
+    top: 24px;
+    right: 16px;
+    color: #000000;
+}
+.modal-heading{
+  text-align: center;
+  margin-bottom: 10px;
+}
+.close-btn{
+  text-align: right;
+  font-size: 17px;
+}
+.bucket-wrap-inner{
+  padding: 6px;
+}
+.bucket-wrap-outer{
+  margin: 10px;
+}
+.bkt-name{
+  margin-left: 12px;
+  font-weight: 600;
+}
+.modal-custom{
+  max-height: 400px;
+}
+.add-btn{
+  text-align: center;
+  margin:15px 0px 5px 0px;
+}
+.create-link{
+  text-decoration: underline !important;
+  color: blue !important;
+  margin-left: 20px !important;
+  cursor: pointer;
+}
+.add-remove i.fa.fa-check{
+  margin-left: 20px;
+  font-size: 22px;
+  color: green;
+}
+.add-remove i.fa.fa-times{
+  margin-left: 20px;
+  font-size: 22px;
+  color: red;
+}
+.add-remove input{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 17px;
+}

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { CarouselModule } from 'angular4-carousel';
 import { NgxCarouselModule } from 'ngx-carousel';
 import 'hammerjs';
@@ -15,17 +15,52 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FooterComponent } from './footer/footer.component';
 import { LoginService } from './login/login.service';
 import { SignupService } from './signup/signup.service';
-import { DashbordComponent } from './dashbord/dashbord.component';
+import { DashbordComponent, DialogDataExampleDialog } from './dashbord/dashbord.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './authGuard.service';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventListService } from './event-list/event-list.service';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { OthereventsComponent } from './common/otherevents/otherevents.component';
-import {FilterPipe, SortByPipe} from './common/filters'
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import { NoopInterceptor } from './common/auth-header'
-import { DashboardService } from './dashbord/dashbord.service'
+import { FilterPipe, SortByPipe} from './common/filters';
+import { HTTP_INTERCEPTORS} from '@angular/common/http';
+import { NoopInterceptor } from './common/auth-header';
+import { DashboardService } from './dashbord/dashbord.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatStepperModule,
+} from '@angular/material';
 
 
 const appRoutes: Routes = [
@@ -40,6 +75,39 @@ const appRoutes: Routes = [
 
 
 @NgModule({
+  exports: [
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+  ],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -53,7 +121,8 @@ const appRoutes: Routes = [
     EventDetailsComponent,
     OthereventsComponent,
     FilterPipe,
-    SortByPipe
+    SortByPipe,
+    DialogDataExampleDialog
   ],
   imports: [
    RouterModule.forRoot(
@@ -64,13 +133,15 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     CarouselModule,
-    NgxCarouselModule
+    NgxCarouselModule,
+    BrowserAnimationsModule
   ],
   providers: [LoginService,SignupService,AuthGuard,EventListService,DashboardService,{
     provide: HTTP_INTERCEPTORS,
     useClass: NoopInterceptor,
     multi: true,
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogDataExampleDialog]
 })
 export class AppModule { }
