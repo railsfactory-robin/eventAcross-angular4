@@ -6,7 +6,7 @@
   <div mat-dialog-content>
     <div class="bucket-wrap-outer">
       <div class="bucket-wrap-inner" *ngFor="let bucket of buckets">
-        <span><input type="checkbox" name="" value="{{bucket.id}}"></span>
+        <span><input type="checkbox" name="" value="{{bucket.id}}" (click)="addedBuckets(bucket.id)"></span>
         <span class="bkt-name">{{bucket.name}}</span>
       </div>
     </div>
@@ -17,7 +17,7 @@
       <span><i class="fa fa-times" aria-hidden="true" (click)="openCreateBucket()"></i></span>
     </div>
     <div class="add-btn">
-      <button class="btn btn-primary">Add</button>
+      <button class="btn btn-primary" (click)="addEventToBucket()">Add</button>
     </div>
   </div>
 </div>

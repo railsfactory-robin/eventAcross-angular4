@@ -21,7 +21,4 @@ export class EventListComponent implements OnInit {
     })
   }
 
-  filterData(){
-    // this.eventname = this.event;
-  }
 }
