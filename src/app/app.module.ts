@@ -15,10 +15,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FooterComponent } from './footer/footer.component';
 import { LoginService } from './login/login.service';
 import { SignupService } from './signup/signup.service';
-import { DashbordComponent, DialogDataExampleDialog } from './dashbord/dashbord.component';
+import { DashbordComponent } from './dashbord/dashbord.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './authGuard.service';
-import { EventListComponent } from './event-list/event-list.component';
+import { EventListComponent, DialogDataExampleDialog } from './event-list/event-list.component';
 import { EventListService } from './event-list/event-list.service';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { OthereventsComponent } from './common/otherevents/otherevents.component';
