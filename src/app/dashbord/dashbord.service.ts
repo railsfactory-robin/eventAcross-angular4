@@ -14,8 +14,8 @@ export class DashboardService {
   }
 
   getEvents(){
-    let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/events?bucket_id=338&on_dashboard=true';
-    return this.http.get(rootUrl, {withCredentials: true}).map(res => res);
+    let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/events?on_dashboard=false';
+    return this.http.get(rootUrl, {withCredentials: false}).map(res => res);
   }
 
   createBuckets(name){
