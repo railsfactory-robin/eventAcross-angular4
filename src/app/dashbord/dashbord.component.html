@@ -1,1 +1,120 @@
-<h1>this is dashoard</h1>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav class="example-sidenav">
+    <div class="list-group">
+      <a class="list-group-item list-group-item-success">
+        Create New Buckets
+      </a>
+      <a class="list-group-item list-group-item-success">Recent Buckets</a>
+      <a class="list-group-item list-group-item-action"  *ngIf="mybuckets">{{mybuckets.recent_bucket.name}}</a>
+      <a class="list-group-item list-group-item-success">My Buckets</a>
+      <div *ngIf="mybuckets">
+        <div  *ngFor="let bucket of mybuckets.buckets ">
+          <a class="list-group-item list-group-item-action">{{bucket.name}}</a>
+       </div>
+     </div>
+     <a class="list-group-item list-group-item-success">Friend's Buckets</a>
+   </div>
+ </mat-sidenav>
+
+ <div class="sidenav-content">
+  <button type="button" class="btn btn-success" (click)="sidenav.open()">
+    Your Buckets
+  </button>
+</div>
+
+<div class="container" *ngIf="mybuckets">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="dash-name">
+        <h5>{{mybuckets.recent_bucket.name}}</h5>
+        <button class="btn btn-danger">Bucket Invites</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="dash-filter">
+        <div class="btn-group">
+          <button class="btn-success">today</button>
+          <button class="btn-warning">week</button>
+          <button class="btn-primary">month</button>
+          <button class="btn-info">year</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="dash-create-event">
+        <button class="btn btn-danger">Create an Event</button>        
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 dash-events">
+      <div class="other-event-wrap">
+        <button class="btn btn-success">Going</button>
+        <h6>Ruby Conference Chennai</h6>
+        <div class="clearfix">
+          <a href="" class="view-more">View More</a>
+          <a href="" class="" class="view-site">View Site</a>
+        </div>
+        <div class="share-icon">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </div>
+        <div class="clearfix place-date">
+          <span class="place">Anshoknagar</span>
+          <span class="date-text">01/05/2018</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="other-event-wrap">
+        <button class="btn btn-warning">Maybe</button>
+        <h6>Ruby Conference Chennai</h6>
+        <div class="clearfix">
+          <a href="" class="view-more">View More</a>
+          <a href="" class="" class="view-site">View Site</a>
+        </div>
+        <div class="share-icon">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </div>
+        <div class="clearfix place-date">
+          <span class="place">Anshoknagar</span>
+          <span class="date-text">01/05/2018</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="other-event-wrap">
+        <button class="btn btn-default">Joining?</button>
+        <h6>Ruby Conference Chennai</h6>
+        <div class="clearfix">
+          <a href="" class="view-more">View More</a>
+          <a href="" class="" class="view-site">View Site</a>
+        </div>
+        <div class="share-icon">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </div>
+        <div class="clearfix place-date">
+          <span class="place">Anshoknagar</span>
+          <span class="date-text">01/05/2018</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="other-event-wrap">
+        <button class="btn btn-default">Joining?</button>
+        <h6>Ruby Conference Chennai</h6>
+        <div class="clearfix">
+          <a href="" class="view-more">View More</a>
+          <a href="" class="" class="view-site">View Site</a>
+        </div>
+        <div class="share-icon">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </div>
+        <div class="clearfix place-date">
+          <span class="place">Anshoknagar</span>
+          <span class="date-text">01/05/2018</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</mat-sidenav-container>

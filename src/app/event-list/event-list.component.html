@@ -1,99 +1,9 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-md-4 offset-md-4">
-      <div class="search-box-top">
-        <input type="text" name="search" placeholder="Type to search an Event">
-        <i class="fa fa-search"></i>
-      </div> 
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <div class="filter-wrap">
-        <div class="filter-head">
-          <h6>Filters</h6>
-        </div>
-        <div class="filters">
-          <div class="filters-inner">
-            <select [(ngModel)]="eventname" (click)="filterData()">
-              <option value="test">test</option>
-            </select>
-          </div>
-          <div class="filters-inner">
-            <select>
-              <option>Category</option>
-            </select>
-          </div>
-          <div class="filters-inner">
-            <select>
-              <option>Category</option>
-            </select>
-          </div>
-          <div class="filters-inner">
-            <select>
-              <option>Category</option>
-            </select>
-          </div>
-          <div class="filters-inner">
-            <select>
-              <option>Category</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-5">
-      <div class="row"  *ngFor="let event of event_lists | filter : eventname " routerLink="/event_list/{{event.slug}}">
-        <div class="event-content">
-          <h5>{{event.name}}</h5>
-          <p>{{event.description}}</p>
-          <div class="clearfix place-share">
-            <p>Place : {{ event.locations[0] ? event.locations[0].lane : ''}} {{event.locations[0] ? event.locations[0].city : ''}}</p>
-            <i class="fa fa-share-alt" aria-hidden="true"></i>
-          </div>
-          <div class="date-price clearfix">
-            <span>Date : {{event.start_at | date : 'dd/MM/yyyy'}}</span>
-            <span class="price">$20</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <app-otherevents></app-otherevents>
-    </div>
-  </div>
-</div> -->
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4 offset-md-4">
       <div class="search-box-top">
         <input type="text" name="search" placeholder="Type to search an Event">
         <i class="fa fa-search"></i>
-      </div>
-    </div>
-    <div class="col-md-4" *ngIf="current_user"> 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="btn btn-group">
-            <button class="btn btn-success">
-              My Dashboard
-            </button>
-            <button class="btn btn-warning">
-              Settings
-            </button> 
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="round-dp">
-            <img src="http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg" alt="no dp">
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="notification">
-            <i class="fa fa-bell" aria-hidden="true"></i>
-            <span>6</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -153,7 +63,7 @@
       <div class="col-md-4">
          <app-otherevents *ngIf="!current_user"></app-otherevents>
         <div class="add-to-bucket" *ngIf="current_user">
-          <button mat-button (click)="openDialog()" class="btn btn-primary">Add to Bucket</button>
+          <button (click)="openDialog()" class="btn btn-primary">Add to Bucket</button>
         </div>
       </div>
     </div>

@@ -134,7 +134,11 @@ const appRoutes: Routes = [
     HttpClientModule,
     CarouselModule,
     NgxCarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule
   ],
   providers: [LoginService,SignupService,AuthGuard,EventListService,DashboardService,{
     provide: HTTP_INTERCEPTORS,

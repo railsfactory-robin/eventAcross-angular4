@@ -28,12 +28,35 @@
         </li>
       </ul>
       <ul class="navbar-nav mr-auto mt-2 mt-md-0" *ngIf="current_user">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/dashbord" routerLinkActive="active">
-            <i class="fa fa-user" aria-hidden="true" ></i> {{current_user.name}} </a>
+        <li>
+          <button mat-icon-button [matMenuTriggerFor]="notification">
+            <mat-icon>notifications</mat-icon>
+          </button>
+          <mat-menu #notification="matMenu">
+            <button mat-menu-item>
+              <mat-icon>notifications_off</mat-icon>
+              <span class="dropdown-list">No notifications</span>
+            </button>
+          </mat-menu>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="logout()">Logout</a>
+        <li>
+          <div class="dp" [matMenuTriggerFor]="dashboard">
+            <img src="http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg">
+          </div>
+          <mat-menu #dashboard="matMenu">
+            <button mat-menu-item routerLink="/dashbord">
+              <mat-icon>account_circle</mat-icon>
+              <span class="dropdown-list">{{current_user.name}}</span>
+            </button>
+            <button mat-menu-item routerLink="/settings">
+              <mat-icon>settings</mat-icon>
+              <span class="dropdown-list">Settings</span>
+            </button>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>power_settings_new</mat-icon>
+              <span class="dropdown-list">Logout</span>
+            </button>
+          </mat-menu>
         </li>
       </ul>
     </form>

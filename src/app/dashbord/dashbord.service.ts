@@ -7,5 +7,9 @@ import { Observable } from "rxjs/Rx"
 export class DashboardService {
   constructor(private http:HttpClient){}
 
-  
+  getEvents(id){
+  	const params = new HttpParams().set('on_dashboard', 'true').append('bucket_id', id);
+  	let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/events';
+    return this.http.get(rootUrl, {params: params, withCredentials: true}).map(res => res);
+  }
 }
