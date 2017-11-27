@@ -28,6 +28,7 @@ import { NoopInterceptor } from './common/auth-header';
 import { DashboardService } from './dashbord/dashbord.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -138,7 +139,8 @@ const appRoutes: Routes = [
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    NgxPaginationModule
   ],
   providers: [LoginService,SignupService,AuthGuard,EventListService,DashboardService,{
     provide: HTTP_INTERCEPTORS,

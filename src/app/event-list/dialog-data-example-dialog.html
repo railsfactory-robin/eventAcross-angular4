@@ -2,7 +2,11 @@
   <div class="close-btn">
     <i class="fa fa-times" aria-hidden="true" (click)="onNoClick()"></i>
   </div>
+
   <h5 mat-dialog-title class="modal-heading">Choose a Bucket</h5>
+      <div class="alert alert-success" role="alert" *ngIf="EventAdded">
+  <strong>Event added successfully! </strong>
+</div>
   <div mat-dialog-content>
     <div class="bucket-wrap-outer">
       <div class="bucket-wrap-inner" *ngFor="let bucket of buckets">

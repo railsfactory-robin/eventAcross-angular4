@@ -38,4 +38,9 @@ export class EventListService {
     let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/events/'+slug;
     return this.http.get(rootUrl).map(res => res);
   }
+  getBucketsAndEvents(){
+    let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/buckets/buckets-and-events';
+    return this.http.get(rootUrl, {withCredentials: true} )
+    .map(res => res);
+  }
 }

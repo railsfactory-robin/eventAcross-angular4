@@ -44,7 +44,7 @@
         </div>
       </div>
       <div class="col-md-5">
-        <div class="row"  *ngFor="let event of event_lists | filter : eventname ">
+        <div class="row"  *ngFor="let event of event_lists | paginate: { itemsPerPage: 3, currentPage: p } | filter : eventname ">
           <div class="event-content">
             <input *ngIf="current_user" type="checkbox" name="" value="{{event.id}}" (click)="addRemoveEvents(event.id)">
             <h5>{{event.name}}</h5>
@@ -61,11 +61,18 @@
         </div>
       </div>
       <div class="col-md-4">
-         <app-otherevents *ngIf="!current_user"></app-otherevents>
-        <div class="add-to-bucket" *ngIf="current_user">
-          <button (click)="openDialog()" class="btn btn-primary">Add to Bucket</button>
-        </div>
+       <app-otherevents *ngIf="!current_user"></app-otherevents>
+       <div class="add-to-bucket" *ngIf="current_user">
+        <button (click)="openDialog()" class="btn btn-primary">Add to Bucket</button>
       </div>
     </div>
   </div>
+  <pagination-controls class="my-pagination" (pageChange)="pageChanged($event)" ></pagination-controls>
 </div>
+</div>
+<style>
+.my-pagination /deep/ .ngx-pagination {
+  /*background: red;*/
+  text-align: center;
+}
+</style>
