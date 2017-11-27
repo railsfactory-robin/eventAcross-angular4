@@ -8,8 +8,8 @@
       <a class="list-group-item list-group-item-action"  *ngIf="mybuckets">{{mybuckets.recent_bucket.name}}</a>
       <a class="list-group-item list-group-item-success">My Buckets</a>
       <div *ngIf="mybuckets">
-        <div  *ngFor="let bucket of mybuckets.buckets ">
-          <a class="list-group-item list-group-item-action">{{bucket.name}}</a>
+        <div  *ngFor="let bucket of mybuckets.buckets">
+          <a class="list-group-item list-group-item-action" (click)="getBucketEvent(bucket.id, bucket.name); sidenav.close()">{{bucket.name}}</a>
        </div>
      </div>
      <a class="list-group-item list-group-item-success">Friend's Buckets</a>
@@ -26,7 +26,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="dash-name">
-        <h5>{{mybuckets.recent_bucket.name}}</h5>
+        <h5>{{event_name}}</h5>
         <button class="btn btn-danger">Bucket Invites</button>
       </div>
     </div>
@@ -47,61 +47,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 dash-events">
+    <div class="col-md-6 dash-events" *ngFor="let event of events">
       <div class="other-event-wrap">
         <button class="btn btn-success">Going</button>
-        <h6>Ruby Conference Chennai</h6>
-        <div class="clearfix">
-          <a href="" class="view-more">View More</a>
-          <a href="" class="" class="view-site">View Site</a>
-        </div>
-        <div class="share-icon">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </div>
-        <div class="clearfix place-date">
-          <span class="place">Anshoknagar</span>
-          <span class="date-text">01/05/2018</span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="other-event-wrap">
-        <button class="btn btn-warning">Maybe</button>
-        <h6>Ruby Conference Chennai</h6>
-        <div class="clearfix">
-          <a href="" class="view-more">View More</a>
-          <a href="" class="" class="view-site">View Site</a>
-        </div>
-        <div class="share-icon">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </div>
-        <div class="clearfix place-date">
-          <span class="place">Anshoknagar</span>
-          <span class="date-text">01/05/2018</span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="other-event-wrap">
-        <button class="btn btn-default">Joining?</button>
-        <h6>Ruby Conference Chennai</h6>
-        <div class="clearfix">
-          <a href="" class="view-more">View More</a>
-          <a href="" class="" class="view-site">View Site</a>
-        </div>
-        <div class="share-icon">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </div>
-        <div class="clearfix place-date">
-          <span class="place">Anshoknagar</span>
-          <span class="date-text">01/05/2018</span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="other-event-wrap">
-        <button class="btn btn-default">Joining?</button>
-        <h6>Ruby Conference Chennai</h6>
+        <h6>{{event.name}}</h6>
         <div class="clearfix">
           <a href="" class="view-more">View More</a>
           <a href="" class="" class="view-site">View Site</a>

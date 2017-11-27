@@ -18,6 +18,7 @@ export class EventListComponent implements OnInit {
   private event_lists;
   private added_event = [];
   private current_user;
+  private p = 1;
 
   ngOnInit() {
     if (localStorage.getItem('current_user')) {
@@ -39,6 +40,10 @@ export class EventListComponent implements OnInit {
     }else{
       this.added_event.splice(this.added_event.indexOf(event_id),1);
     }
+  }
+
+  pageChanged(id){
+    this.p = id;
   }
 
   openDialog(): void {
@@ -72,18 +77,42 @@ export class DialogDataExampleDialog implements OnInit{
   private bucket_name;
   private events_added;
   private bucket_added = [];
+  private list: any;
+  private EventAdded = false;
 
   ngOnInit(){
     this.events_added = this.data.data;
     this.eventListService.getBuckets().subscribe(data => {
-      console.log(data)
-      this.buckets = data["buckets"];
+      this.getEventsAndBuckets(data["buckets"]);
     })
     this.create_bucket = false;
   }
 
+  getEventsAndBuckets(buckets){
+    console.log(buckets)
+    this.eventListService.getBucketsAndEvents().subscribe(data => {
+      this.list = data;
+      for (var i = this.list.length - 1; i >= 0; i--) {
+        if(this.list[i].events.length > 0){
+          for (var j = this.events_added.length - 1; j >= 0; j--) {
+            for (var k = this.list[i].events.length - 1; k >= 0; k--) {
+              if (this.events_added[j] == this.list[i].events[k].id) {
+                for (var a = buckets.length - 1; a >= 0; a--) {
+                  if (buckets[a].id == this.list[i].bucket.id) {
+                    buckets[a].checked = true;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      this.buckets = buckets;
+      console.log(buckets)
+    })
+  }
+
   addedBuckets(bucket_id){
-    alert(bucket_id)
     if(this.bucket_added.indexOf(bucket_id) === -1){
       this.bucket_added.push(bucket_id)
     }else{
@@ -111,6 +140,7 @@ export class DialogDataExampleDialog implements OnInit{
   addEventToBucket(){
     this.eventListService.addEventToBucket(this.bucket_added, this.events_added).subscribe(data => {
       console.log(data)
+      this.EventAdded = true;
     })
   }
 }

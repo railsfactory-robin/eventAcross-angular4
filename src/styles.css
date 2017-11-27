@@ -17,10 +17,8 @@ body,h1,h2,h3,h4,h5,h6,p{
   height: 0;
 }
 .clearfix { display: inline-block; }
-/* start commented backslash hack \*/
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
-/* close commented backslash hack */
 .main-layout{
 	background-color: #f1efef82;
 }
@@ -29,14 +27,12 @@ body,h1,h2,h3,h4,h5,h6,p{
   color: rgba(0,0,0,.87);
   border-radius: 10px !important;
 }
-/*.mat-menu-panel{
-  margin-top: 52px !important;
-  }*/
-  .mat-icon-button{
-    color: silver !important;
-  }
-  .cdk-overlay-pane{
-    top: 57px !important;
-  }
-
-  
+.mat-icon-button{
+  color: silver !important;
+}
+.cdk-overlay-pane{
+  top: 57px !important;
+}
+.mat-drawer-container{
+  min-height: 630px;
+}

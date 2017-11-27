@@ -29,6 +29,8 @@ import { DashboardService } from './dashbord/dashbord.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -140,7 +142,8 @@ const appRoutes: Routes = [
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng4LoadingSpinnerModule
   ],
   providers: [LoginService,SignupService,AuthGuard,EventListService,DashboardService,{
     provide: HTTP_INTERCEPTORS,
