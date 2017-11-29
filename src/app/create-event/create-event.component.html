@@ -1,40 +1,85 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <button>Your Buckets</button>
-    </div>
-    <div class="col-md-12">
-      <h4>
-        Chennai Bucket
-      </h4>
-    </div>
-    <div class="col-md-12">
-      <h3>Create an Event</h3>
-    </div>
-    <div class="col-md-8 offset-md-2">
-      <h5>1. Event's Basic Information<em>*</em></h5>
-      <input type="text" class="form-control" name="eventname" placeholder="Type your title here">
-      <textarea class="form-control" placeholder="Enter Event description here"></textarea>
-    </div>
-    <div class="col-md-8 offset-md-2">
-      <h5>2. Venue and Date<em>*</em></h5>
-      <ng4geo-autocomplete (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
-      <p>Unable to locate ?, <a href="">Enter an Address</a></p>
-      <div class="row">
-        <div class="col-md-6">
-          <input matInput [matDatepicker]="picker1" placeholder="Choose a date">
-          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-          <mat-datepicker #picker1></mat-datepicker>
+ <div class="container-fluid">
+   <div class="sidenav-content">
+    <button type="button" class="btn btn-success" (click)="sidenav.open()">
+      Your Buckets
+    </button>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="bucket-name">
+          <h5>
+            Chennai Bucket
+          </h5>
         </div>
-        <div class="col-md-6">
-          <input matInput [matDatepicker]="picker2" placeholder="Choose a date">
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
+      </div>
+      <div class="col-md-12">
+        <div class="main-head">
+          <h3>Create an Event</h3>
         </div>
-        <div class="col-md-6">
-          <ngb-timepicker [(ngModel)]="time" [meridian]="true" [spinners]="false"></ngb-timepicker>
+      </div>
+      <div class="col-md-8 offset-md-2">
+        <div class="part-1">
+          <h5>1. Event's Basic Information<em>*</em></h5>
+          <input type="text" class="form-control" name="eventname" placeholder="Type your title here">
+          <textarea rows="5" class="form-control" placeholder="Enter Event description here"></textarea>
+        </div>
+      </div>
+      <div class="col-md-8 offset-md-2">
+        <div class="part-2">
+          <h5>2. Venue and Date<em>*</em></h5>
+          <ng4geo-autocomplete (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+          <p>Unable to locate ?, <a href="">Enter an Address</a></p>
+          <div class="row start-end-date">
+            <div class="col-md-6">
+              <label>Start Date : </label>
+              <input matInput [matDatepicker]="picker1" placeholder="Start date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </div>
+            <div class="col-md-6">
+              <label>End Date : </label>
+              <input matInput [matDatepicker]="picker2" placeholder="End date">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </div>
+          </div>
+          <div class="row start-end-time">
+            <div class="col-md-6">
+              <label>Start Time : </label>
+              <ngb-timepicker [(ngModel)]="start_time" [meridian]="true" [spinners]="false" size="small"></ngb-timepicker>
+            </div>
+            <div class="col-md-6">
+              <label>End Time : </label>
+              <ngb-timepicker [(ngModel)]="end_time" [meridian]="true" [spinners]="false" size="small"></ngb-timepicker>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 offset-md-2">
+        <div class="part-3">
+          <h5>3. Other Details<em>*</em></h5>
+          <div class="col-md-12">
+            <div>
+              <input type="checkbox" name="public_event"> Public (This Event can be seen by all )
+            </div>
+            <div>
+              <input type="checkbox" name="private_events"> Private (This Event can be seen only by Chennai Bucket invitees)</div>
+            </div>
+            <tag-input [(ngModel)]='items' theme='bootstrap'></tag-input>
+          </div>
+        </div>
+        <div class="col-md-8 offset-md-2">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="create-event-actions">
+                <button class="btn btn-info">Preview</button>
+                <button class="btn btn-success">Create</button>
+                <a href="">Cancel</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

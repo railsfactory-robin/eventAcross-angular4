@@ -68,6 +68,8 @@ import {
 } from '@angular/material';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
+import { TagInputModule } from 'ng2-tag-input';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -150,6 +152,7 @@ const appRoutes: Routes = [
     NgxPaginationModule,
     Ng4LoadingSpinnerModule,
     MatDatepickerModule,
+    TagInputModule,
     Ng4GeoautocompleteModule.forRoot(),
     NgbModule.forRoot()
   ],
