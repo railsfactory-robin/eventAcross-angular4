@@ -44,12 +44,12 @@
         </div>
       </div>
       <div class="col-md-5">
-        <div class="row"  *ngFor="let event of event_lists | paginate: { itemsPerPage: 3, currentPage: p } | filter : eventname ">
+        <div class="row"  *ngFor="let event of event_lists | paginate: { itemsPerPage: 3, currentPage: p } | filter : eventname " >
           <div class="event-content">
             <input *ngIf="current_user" type="checkbox" name="" value="{{event.id}}" (click)="addRemoveEvents(event.id)">
-            <h5>{{event.name}}</h5>
-            <p>{{event.description}}</p>
-            <div class="clearfix place-share">
+            <h5 routerLink="{{event.slug}}">{{event.name}}</h5>
+            <p routerLink="{{event.slug}}">{{event.description}}</p>
+            <div routerLink="{{event.slug}}" class="clearfix place-share">
               <p>Place : {{ event.locations[0] ? event.locations[0].lane : ''}} {{event.locations[0] ? event.locations[0].city : ''}}</p>
               <i class="fa fa-share-alt" aria-hidden="true"></i>
             </div>

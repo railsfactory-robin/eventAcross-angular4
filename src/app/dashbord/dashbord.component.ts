@@ -11,7 +11,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 })
 export class DashbordComponent implements OnInit {
 
-  constructor(private dashboardService: DashboardService, private eventListService: EventListService,private spinnerService: Ng4LoadingSpinnerService) { }
+  constructor(private dashboardService: DashboardService, private eventListService: EventListService, private spinnerService: Ng4LoadingSpinnerService) { }
 
   private mybuckets;
   private events;

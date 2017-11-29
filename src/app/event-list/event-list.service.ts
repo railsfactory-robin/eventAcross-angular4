@@ -43,4 +43,10 @@ export class EventListService {
     return this.http.get(rootUrl, {withCredentials: true} )
     .map(res => res);
   }
+
+  getComments(id){
+    let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/comments/for-event/'+id;
+    return this.http.get(rootUrl, {withCredentials: true} )
+    .map(res => res);
+  }
 }

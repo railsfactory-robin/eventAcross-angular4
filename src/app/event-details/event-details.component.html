@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8" style="margin: 20px 0px;">
       <div class="event-content" *ngIf="event">
         <h5>{{event.name}}</h5>
         <p>{{event.description}}</p>
@@ -33,47 +33,38 @@
           <button class="btn btn-warning">Private comments</button>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-2">
-          <div class="round-dp">
-            <img src="http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg" alt="no dp">
+      <div *ngIf="(comments && comments.public_comments)" class="comment-wrap clearfix">
+        <div class="row" *ngFor="let p of comments.public_comments">
+          <div class="col-md-2">
+            <div class="round-dp">
+              <img src="http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg" alt="no dp">
+            </div>
           </div>
-        </div>
-        <div class="col-md-10">
-          <div class="comment-box">
-           <p> This is a nice event, please come and join.</p>
-           <p class="comment-time"> 2:30 am Jan 09th, 2017 </p>
+          <div class="col-md-10">
+            <div class="comment-box">
+             <p>{{p.body}}</p>
+             <p class="comment-time">{{p.user.email}} - 2:30 am Jan 09th, 2017 </p>
+           </div>
          </div>
        </div>
      </div>
      <div class="row">
       <div class="col-md-2">
         <div class="round-dp">
-          <img src="http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg" alt="no dp">
+          <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/flip.jpg" alt="no dp">
         </div>
       </div>
       <div class="col-md-10">
         <div class="comment-box">
-         <p> This is a nice event, please come and join.</p>
-         <p class="comment-time"> 2:30 am Jan 09th, 2017 </p>
+        <textarea class="write-comment" rows="3"></textarea>
        </div>
      </div>
-   </div>
-   <div class="row">
-    <div class="col-md-2">
-      <div class="round-dp">
-        <img src="http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg" alt="no dp">
-      </div>
-    </div>
-    <div class="col-md-10">
-      <div class="comment-box">
-       <p> This is a nice event, please come and join.</p>
-       <p class="comment-time"> 2:30 am Jan 09th, 2017 </p>
+     <div class="col-md-4 offset-md-8">
+       <button class="btn btn-primary pull-right">Comment</button>
      </div>
    </div>
  </div>
-</div>
-<div class="col-md-4">
+ <div class="col-md-4">
   <div class="col-md-5 offset-md-7 btn-grp">
     <button class="btn btn-success">Joining</button>
     <button class="btn btn-success">Checklist</button>

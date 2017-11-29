@@ -1,6 +1,8 @@
 import { Component, OnInit,  Inject } from '@angular/core';
 import { EventListService } from './event-list.service'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+
 
 @Component({
   selector: 'app-event-list',
@@ -12,7 +14,7 @@ export class EventListComponent implements OnInit {
 
 
 
-  constructor(private eventListService: EventListService, public dialog: MatDialog) { }
+  constructor(private eventListService: EventListService, public dialog: MatDialog, private spinnerService: Ng4LoadingSpinnerService) { }
 
   private mybuckets;
   private event_lists;
@@ -21,6 +23,7 @@ export class EventListComponent implements OnInit {
   private p = 1;
 
   ngOnInit() {
+    this.spinnerService.show();
     if (localStorage.getItem('current_user')) {
       this.current_user = JSON.parse(localStorage.getItem('current_user'));
       this.eventListService.getBuckets().subscribe(data => {
@@ -31,6 +34,7 @@ export class EventListComponent implements OnInit {
     this.eventListService.getEvents().subscribe(event_list => {
         this.event_lists = event_list["events"];
         console.log(this.event_lists)
+        this.spinnerService.hide();
       })
   }
 

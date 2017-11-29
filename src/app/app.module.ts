@@ -30,6 +30,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 import {
   MatAutocompleteModule,
@@ -64,10 +66,12 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
-
+import { CreateEventComponent } from './create-event/create-event.component';
+import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'create_event', component: CreateEventComponent },
   { path: 'event_list', component: EventListComponent },
   { path: 'event_list/:id', component: EventDetailsComponent },
   { path: 'login', component: LoginComponent },
@@ -125,7 +129,8 @@ const appRoutes: Routes = [
     OthereventsComponent,
     FilterPipe,
     SortByPipe,
-    DialogDataExampleDialog
+    DialogDataExampleDialog,
+    CreateEventComponent
   ],
   imports: [
    RouterModule.forRoot(
@@ -143,7 +148,10 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatSidenavModule,
     NgxPaginationModule,
-    Ng4LoadingSpinnerModule
+    Ng4LoadingSpinnerModule,
+    MatDatepickerModule,
+    Ng4GeoautocompleteModule.forRoot(),
+    NgbModule.forRoot()
   ],
   providers: [LoginService,SignupService,AuthGuard,EventListService,DashboardService,{
     provide: HTTP_INTERCEPTORS,
