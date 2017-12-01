@@ -39,15 +39,16 @@ body,h1,h2,h3,h4,h5,h6,p{
 .mat-drawer-container{
   min-height: 630px;
 }
-tag-input input{
+input.mat-chip-input{
   position: absolute;
   left: 15px;
   border: 1px solid #ddd !important;
   margin: 10px 0px !important;
+  padding: 4px;
+  border-radius: 2px !important;
 }
-tag {
+.mat-chip {
   margin-top: 60px !important;
-  /*margin-left: 15px !important;*/
 }
 .bootstrap.ng2-tag-input.ng2-tag-input--focused[_ngcontent-c10]{
   border: none !important;
@@ -57,6 +58,9 @@ tag {
 }
 .bootstrap.ng2-tag-input[_ngcontent-c10] .ng2-tags-container[_ngcontent-c10] {
     margin-left: 14px !important;
+}
+.custom-autocomplete{
+  margin-bottom: 10px !important;
 }
 .custom-autocomplete input{
   height: 35px !important;

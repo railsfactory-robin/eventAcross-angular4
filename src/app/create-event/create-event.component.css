@@ -13,36 +13,57 @@
 	border-bottom: 2px solid #a0a9a2;
 	padding: 10px;
 }
- .part-3{
- 	border: none;
- 	margin-bottom: 20px;
- }
- .part-1 h5, .part-2 h5, .part-3 h5{
- 	margin:20px 0px;
- }
- em{
- 	color: red;
- }
- .part-1 input, .part-1 textarea{
- 	margin: 20px 0px;
- }
- .part-2 p{
- 	text-align: right;
-    margin: 10px 0px;
- }
- .custom-autocomplete{
- 	margin: 10px 0px !important;
- }
- .start-end-date{
- 	margin: 20px -15px;
- }
- .start-end-time{
- 	margin: 20px -15px; 	
- }
- .create-event-actions{
- 	text-align: center;
-    margin: 60px 0px;
- }
- .create-event-actions button{
- 	margin: 0px 30px
-  }
+.part-3{
+	border: none;
+	margin-bottom: 20px;
+}
+.part-1 h5, .part-2 h5, .part-3 h5{
+	margin:20px 0px;
+}
+em{
+	color: red;
+}
+.part-1 input, .part-1 textarea{
+	margin: 20px 0px;
+}
+.part-2 p{
+	text-align: right;
+}
+.part-2 p span{
+	text-decoration: underline;
+	color: #1185d6;
+	cursor: pointer;
+}
+.custom-autocomplete{
+	margin: 10px 0px !important;
+}
+.start-end-date{
+	margin: 20px -15px;
+}
+.start-end-time{
+	margin: 20px -15px; 	
+}
+.create-event-actions{
+	text-align: center;
+	margin: 60px 0px;
+}
+.create-event-actions button{
+	margin: 0px 30px
+}
+.address input{
+	margin: 10px 0px;
+}
+.reset-add{
+	text-decoration: underline;
+	color: #1185d6;
+	width: 100%;
+	text-align: left !important;
+	margin: 15px !important;
+	cursor: pointer;
+}
+input{
+	margin: 10px 0px;
+}
+.error-message{
+	color: red;
+}

@@ -49,4 +49,11 @@ export class EventListService {
     return this.http.get(rootUrl, {withCredentials: true} )
     .map(res => res);
   }
+  createEvent(bucket_id, name, description, start_at, end_at, locations, is_public, url, tags){
+    console.log(bucket_id,name,description,start_at,end_at,locations,is_public,url,tags)
+    let body = {bucket_id: bucket_id, name: name, description: description, start_at: start_at, end_at: end_at, locations: locations, is_public: is_public, url:url, tags:tags}
+    let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/buckets/create-event';
+    return this.http.post(rootUrl, body, {withCredentials: true} )
+    .map(res => res);
+  }
 }

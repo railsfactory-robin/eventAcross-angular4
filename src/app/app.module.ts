@@ -68,7 +68,9 @@ import {
 } from '@angular/material';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
-import { TagInputModule } from 'ng2-tag-input';
+// import { TagInputModule } from 'ng2-tag-input';
+import {CdkTableModule} from '@angular/cdk/table';
+
 
 
 const appRoutes: Routes = [
@@ -116,6 +118,7 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    CdkTableModule
   ],
   declarations: [
     AppComponent,
@@ -152,9 +155,9 @@ const appRoutes: Routes = [
     NgxPaginationModule,
     Ng4LoadingSpinnerModule,
     MatDatepickerModule,
-    TagInputModule,
     Ng4GeoautocompleteModule.forRoot(),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    MatChipsModule
   ],
   providers: [LoginService,SignupService,AuthGuard,EventListService,DashboardService,{
     provide: HTTP_INTERCEPTORS,
