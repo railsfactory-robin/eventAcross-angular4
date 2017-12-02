@@ -21,7 +21,7 @@
 }
 .other-event-wrap{
     border: 2px solid #000;
-    padding: 6px;
+    padding: 10px;
     margin: 15px auto;
     border-radius: 3px;
     position: relative;
@@ -39,10 +39,16 @@
 }
 .other-event-wrap button{
     position: absolute;
-    right: 6px;
+    right: 5px;
+    width: 72px;
+    height: 30px;
+    font-size: 12px;
+    text-align: center;
 }
 .other-event-wrap h6{
-	margin: 55px 2px 20px 0px;
+   margin: 43px 2px 20px 0px;
+   text-transform: uppercase;
+   color: #040404;
 }
 .other-event-wrap .view-site{
 	display: block;

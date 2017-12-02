@@ -29,6 +29,7 @@ body,h1,h2,h3,h4,h5,h6,p{
   background: #fff;
   color: rgba(0,0,0,.87);
   border-radius: 10px !important;
+  border: 1px solid #000 !important;
 }
 .mat-icon-button{
   color: silver !important;
@@ -57,7 +58,7 @@ input.mat-chip-input{
   border: none !important;
 }
 .bootstrap.ng2-tag-input[_ngcontent-c10] .ng2-tags-container[_ngcontent-c10] {
-    margin-left: 14px !important;
+  margin-left: 14px !important;
 }
 .custom-autocomplete{
   margin-bottom: 10px !important;
@@ -72,4 +73,7 @@ input.mat-chip-input{
 }
 ngb-timepicker fieldset{
   display: inline !important;
+}
+.fa-share-alt{
+  color: green;
 }

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4 offset-md-4">
       <div class="search-box-top">
-        <input type="text" name="search" placeholder="Type to search an Event">
+        <input type="text" name="search" [(ngModel)]="search" placeholder="Type to search an Event" (keyup)="searchEvent(search)">
         <i class="fa fa-search"></i>
       </div>
     </div>
@@ -11,46 +11,74 @@
     <div class="row">
       <div class="col-md-3">
         <div class="filter-wrap">
-          <div class="filter-head">
-            <h6>Filters</h6>
+          <div class="btn-group">
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle>Select me</button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button class="dropdown-item">One</button>
+                <button class="dropdown-item">Two</button>
+                <button class="dropdown-item">Four!</button>
+              </div>
+            </div>
           </div>
-          <div class="filters">
-            <div class="filters-inner">
-              <select [(ngModel)]="eventname">
-                <option value="test">test</option>
-              </select>
+        </div>
+        <div class="filter-wrap">
+          <div class="btn-group">
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button class="btn btn-success dropdown-toggle-split" ngbDropdownToggle>Select me</button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button class="dropdown-item">One</button>
+                <button class="dropdown-item">Two</button>
+                <button class="dropdown-item">Four!</button>
+              </div>
             </div>
-            <div class="filters-inner">
-              <select>
-                <option>Category</option>
-              </select>
+          </div>
+        </div>
+        <div class="filter-wrap">
+          <div class="btn-group">
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button class="btn btn-info dropdown-toggle-split" ngbDropdownToggle>Select me</button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button class="dropdown-item">One</button>
+                <button class="dropdown-item">Two</button>
+                <button class="dropdown-item">Four!</button>
+              </div>
             </div>
-            <div class="filters-inner">
-              <select>
-                <option>Category</option>
-              </select>
+          </div>
+        </div>
+        <div class="filter-wrap">
+          <div class="btn-group">
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button class="btn btn-warning dropdown-toggle-split" ngbDropdownToggle>Select me</button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button class="dropdown-item">One</button>
+                <button class="dropdown-item">Two</button>
+                <button class="dropdown-item">Four!</button>
+              </div>
             </div>
-            <div class="filters-inner">
-              <select>
-                <option>Category</option>
-              </select>
-            </div>
-            <div class="filters-inner">
-              <select>
-                <option>Category</option>
-              </select>
+          </div>
+        </div>
+        <div class="filter-wrap">
+          <div class="btn-group">
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button class="btn btn-danger dropdown-toggle-split" ngbDropdownToggle>Select me</button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button class="dropdown-item">One</button>
+                <button class="dropdown-item">Two</button>
+                <button class="dropdown-item">Four!</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-5">
-        <div class="row"  *ngFor="let event of event_lists | paginate: { itemsPerPage: 3, currentPage: p } | filter : eventname " >
+      <div [ngClass]=" current_user ? 'col-md-6' : 'col-md-5'">
+        <div class="row"  *ngFor="let event of event_lists | filter : eventname " >
           <div class="event-content">
             <input *ngIf="current_user" type="checkbox" name="" value="{{event.id}}" (click)="addRemoveEvents(event.id)">
             <h5 routerLink="{{event.slug}}">{{event.name}}</h5>
             <p routerLink="{{event.slug}}">{{event.description}}</p>
-            <div routerLink="{{event.slug}}" class="clearfix place-share">
-              <p>Place : {{ event.locations[0] ? event.locations[0].lane : ''}} {{event.locations[0] ? event.locations[0].city : ''}}</p>
+            <div class="clearfix place-share">
+              <p>Place : {{ event.locations[0] ? event.locations[0].venue : ''}} {{event.locations[0] ? event.locations[0].address_lane_1 : ''}} {{event.locations[0] ? event.locations[0].address_lane_2 : ''}} {{event.locations[0] ? event.locations[0].city : ''}}</p>
               <i class="fa fa-share-alt" aria-hidden="true"></i>
             </div>
             <div class="date-price clearfix">
@@ -59,15 +87,17 @@
             </div>
           </div>
         </div>
+        <div class="pagination-wrap" *ngIf="event_lists">
+          <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="11" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="pageChanged()"></ngb-pagination>
+        </div>
       </div>
-      <div class="col-md-4">
+      <div [ngClass]=" current_user ? 'col-md-3' : 'col-md-4'">
        <app-otherevents *ngIf="!current_user"></app-otherevents>
        <div class="add-to-bucket" *ngIf="current_user">
         <button (click)="openDialog()" class="btn btn-primary">Add to Bucket</button>
       </div>
     </div>
   </div>
-  <pagination-controls class="my-pagination" (pageChange)="pageChanged($event)" ></pagination-controls>
 </div>
 </div>
 <style>

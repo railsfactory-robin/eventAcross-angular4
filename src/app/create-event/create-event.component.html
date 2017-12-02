@@ -1,7 +1,7 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav class="example-sidenav">
     <div class="list-group">
-      <a class="list-group-item list-group-item-success">
+      <a class="list-group-item list-group-item-success" (click)="openDialog();sidenav.close()">
         Create New Buckets
       </a>
       <a class="list-group-item list-group-item-success">Recent Buckets</a>

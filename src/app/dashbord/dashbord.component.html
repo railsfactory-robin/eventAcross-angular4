@@ -1,7 +1,7 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav class="example-sidenav">
     <div class="list-group">
-      <a class="list-group-item list-group-item-success">
+      <a class="list-group-item list-group-item-success"  (click)="openDialog();sidenav.close()">
         Create New Buckets
       </a>
       <a class="list-group-item list-group-item-success">Recent Buckets</a>
@@ -26,7 +26,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="dash-name">
-        <h5>{{event_name}}</h5>
+        <h5>{{bucket_name}}</h5>
         <button class="btn btn-danger">Bucket Invites</button>
       </div>
     </div>
@@ -42,7 +42,7 @@
     </div>
     <div class="col-md-4">
       <div class="dash-create-event">
-        <button class="btn btn-danger">Create an Event</button>        
+        <button class="btn btn-danger" (click)="createRoute()">Create an Event</button>        
       </div>
     </div>
   </div>

@@ -15,9 +15,16 @@ export class EventListService {
     .map(res => res);
   }
 
-  getEvents(){
-    let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/events?on_dashboard=false';
-    return this.http.get(rootUrl, {withCredentials: false}).map(res => res);
+  getEvents(page){
+    const params = new HttpParams().set('on_dashboard', 'false').append('per_page', "3").append('page',page);
+    let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/events';
+    return this.http.get(rootUrl, {params: params, withCredentials: false}).map(res => res);
+  }
+
+  searchEvents(page,search){
+    const params = new HttpParams().set('search_text', search).append('per_page', "3").append('page',page);
+    let rootUrl = 'http://api.eventsacross-stage.railsfactory.com/api/v1/events/search-events';
+    return this.http.get(rootUrl, {params: params, withCredentials: false}).map(res => res);
   }
 
   createBuckets(name){

@@ -20,8 +20,7 @@ export class EventListComponent implements OnInit {
   private event_lists;
   private added_event = [];
   private current_user;
-  private p = 1;
-
+  page = 1;
   ngOnInit() {
     this.spinnerService.show();
     if (localStorage.getItem('current_user')) {
@@ -31,11 +30,15 @@ export class EventListComponent implements OnInit {
         this.mybuckets = data;
       })
     }
-    this.eventListService.getEvents().subscribe(event_list => {
-        this.event_lists = event_list["events"];
-        console.log(this.event_lists)
-        this.spinnerService.hide();
-      })
+    this.getEvents(this.page)
+  }
+
+  getEvents(page){
+    this.eventListService.getEvents(page).subscribe(event_list => {
+      this.event_lists = event_list["events"];
+      console.log(this.event_lists)
+      this.spinnerService.hide();
+    });
   }
 
   addRemoveEvents(event_id){
@@ -46,8 +49,22 @@ export class EventListComponent implements OnInit {
     }
   }
 
-  pageChanged(id){
-    this.p = id;
+  pageChanged(){
+    this.getEvents(this.page)
+  }
+
+  searchEvent(search){
+    if (!search) {
+      this.getEvents(1)
+    }else{
+      if(search.length > 2){
+        this.spinnerService.show();
+        this.eventListService.searchEvents(1,search).subscribe(event_list => {
+          this.event_lists = event_list["events"];
+          this.spinnerService.hide();
+        });
+      }
+    }
   }
 
   openDialog(): void {

@@ -3,6 +3,10 @@ import {MatChipInputEvent} from '@angular/material';
 import {ENTER} from '@angular/cdk/keycodes';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { EventListService } from './../event-list/event-list.service'
+import {DialogDataExampleDialog} from './../event-list/event-list.component'
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -29,15 +33,35 @@ export class CreateEventComponent implements OnInit {
   event_create_status;
 
   constructor(private eventListService: EventListService,
-   private spinnerService: Ng4LoadingSpinnerService) { }
+   private spinnerService: Ng4LoadingSpinnerService,
+   public dialog: MatDialog,
+   private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
     this.spinnerService.show();
     this.eventListService.getBuckets().subscribe(data => {
       this.mybuckets = data;
-      this.current_bucket = this.mybuckets.recent_bucket;
+      if (id) {
+        this.changeBucket(id);
+      }else{
+        this.current_bucket = this.mybuckets.recent_bucket;        
+      }
       this.spinnerService.hide();
     })
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(DialogDataExampleDialog, {
+      width: '360px',
+      data: {
+        data: []
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   add(event: MatChipInputEvent): void {

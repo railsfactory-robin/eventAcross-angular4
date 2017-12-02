@@ -1,6 +1,7 @@
 .search-box-top{
   margin: 40px auto;
   position: relative;
+  text-align: center;
 }
 .search-box-top input{
   width: 300px;
@@ -12,7 +13,7 @@
   position: absolute;
   top: 12px;
   font-size: 20px;
-  left: 13px;
+  left: 60px;
 }
 .round-dp{
   width: 55px;
@@ -95,25 +96,42 @@
   margin-left: 17px;
 }
 .event-content{
-  width: 72%;
+  width: 100%;
   line-height: 28px;
-  margin: 0px 0px 50px 0px;
+  margin: 0px 0px 10px 0px;
+  border: 1px solid #ddd;
+  padding: 30px 50px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 2px -2px 11px 0px #929090;
+  position: relative;
+  border: 1px solid #000;
 }
 .event-content h5{
   display: inline-block;
-  width: 85%;
-  margin-left: 12px;
+  /*width: 100%;*/
+  color: #1185d6;
+  text-transform: uppercase;
+  margin: 0px 0px 10px 0px;
+}
+
+.event-content p{
+  text-align: justify;
+  margin-bottom: 20px;
 }
 .event-content input[type='checkbox'] {
-    -webkit-appearance:none;
-    width:20px;
-    height:20px;
-    background:white;
-    border-radius:5px;
-    border:2px solid #555;
+  -webkit-appearance:none;
+  width:17px;
+  height:17px;
+  background:white;
+  border-radius:5px;
+  border:1px solid #555;
+  position: absolute;
+  top: 34px;
+  left: 20px
 }
 .event-content input[type='checkbox']:checked {
-    background: #abd;
+  background: #73ad5b;
 }
 .date-price .price{
   float: left;
@@ -127,52 +145,16 @@
   float: left;
 }
 .filter-wrap{
-  margin-right: 22px;
-}
-.filter-head{
-  border: 2px solid #ccc;
-  padding: 10px;
-  background-color: #1e2025
-}
-.filter-head h6{
-  width: 65px;
-  height: 19px;
-  font-family: ProximaNova;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: left;
-  color: #ffffff;
-}
-.filters{
-  background-color: #2f323a;
-  border: 2px solid #ccc;
-  border-top: 0px;
-  padding: 10px;
-  min-height: 427px;
-}
-.filters select{
-  -webkit-appearance: button;
-  -webkit-border-radius: 2px;
-  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-  -webkit-padding-end: 20px;
-  -webkit-padding-start: 2px;
-  -webkit-user-select: none;
-  background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
-  background-position: 97% center;
-  background-repeat: no-repeat;
-  border: 1px solid #AAA;
-  color: #555;
-  font-size: inherit;
-  overflow: hidden;
-  padding: 5px 10px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 207px;
-}
-.filters-inner{
-  padding: 11px 0px;
+    margin: 40px auto;
 }
 .add-to-bucket{
   text-align: right;
   margin-top: 60%;
+}
+.pagination-wrap{
+  margin: 10px auto;
+}
+.spinner{
+  text-align: center;
+  margin: 50px auto;
 }
