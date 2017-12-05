@@ -88,6 +88,7 @@ export class CreateEventComponent implements OnInit {
   }
 
   changeAddressMode(){
+    this.address= [];
     this.address_type = !this.address_type;
   }
 
@@ -108,7 +109,6 @@ export class CreateEventComponent implements OnInit {
     second:string,
     start_at:string,
     end_at:string;
-    this.address = [];
 
     hour = (data.start_time.hour.toString().length==2) ? data.start_time.hour.toString() : ('0'+data.start_time.hour.toString());
     minute = (data.start_time.minute.toString().length==2) ? data.start_time.minute.toString() : ('0'+data.start_time.minute.toString());
@@ -125,7 +125,7 @@ export class CreateEventComponent implements OnInit {
     start_at = data.start_date.toString().replace('00:00:00', start_time);
     end_at = data.end_date.toString().replace('00:00:00', end_time);
     if (this.address.length < 1) {
-      this.address = data.address;
+      this.address.push(data.address);
     }
     console.log(this.address)
     this.eventListService.createEvent(this.current_bucket.id, data.event_name, data.event_description, start_at, end_at, this.address, data.is_public, data.url, this.tags.toString()).subscribe(data => {
@@ -146,32 +146,33 @@ export class CreateEventComponent implements OnInit {
 
   googleLocation(selectedData:any) {
     this.address = [];
-    console.log(this.address)
-    if (selectedData) {
+    let pin,country,state,address_lane_1,address_lane_2,lane,city,venue;
+    if (selectedData && selectedData.data) {
       for (var i = selectedData.data.address_components.length - 1; i >= 0; i--) {
         if(selectedData.data.address_components[i].types[0] == "postal_code"){
-          this.address.pin = selectedData.data.address_components[i].long_name;
+          pin = selectedData.data.address_components[i].long_name;
         }
         if(selectedData.data.address_components[i].types[0] == "country"){
-          this.address.country = selectedData.data.address_components[i].long_name;
+          country = selectedData.data.address_components[i].long_name;
         }
         if(selectedData.data.address_components[i].types[0] == "administrative_area_level_1"){
-          this.address.state = selectedData.data.address_components[i].long_name;
+          state = selectedData.data.address_components[i].long_name;
         }
         if(selectedData.data.address_components[i].types[0] == "sublocality_level_1"){
-          this.address.address_lane_1 = selectedData.data.address_components[i].long_name;
+          address_lane_1 = selectedData.data.address_components[i].long_name;
         }
         if(selectedData.data.address_components[i].types[0] == "administrative_area_level_2"){
-          this.address.address_lane_2 = selectedData.data.address_components[i].long_name;
+          address_lane_2 = selectedData.data.address_components[i].long_name;
         }
         if(selectedData.data.address_components[i].types[0] == "locality"){
-          this.address.city = selectedData.data.address_components[i].long_name;
+          city = selectedData.data.address_components[i].long_name;
         }
         if(selectedData.data.address_components[i].types[0] == "sublocality_level_2"){
-          this.address.lane = selectedData.data.address_components[i].long_name;
+          lane = selectedData.data.address_components[i].long_name;
         }
       }
-      this.address.venue = selectedData.data.name;
+      venue = selectedData.data.name;
+      this.address.push({venue:venue, city:city, country:country, state:state, address_lane_2:address_lane_2, address_lane_1:address_lane_1,lane:lane,pin:pin})
       console.log(this.address)
     }
   }
