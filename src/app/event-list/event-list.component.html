@@ -77,8 +77,17 @@
             <input *ngIf="current_user" type="checkbox" name="" value="{{event.id}}" (click)="addRemoveEvents(event.id)">
             <h5 routerLink="{{event.slug}}">{{event.name}}</h5>
             <p routerLink="{{event.slug}}">{{event.description}}</p>
-            <div class="clearfix place-share">
-              <p>Place : {{ event.locations[0] ? event.locations[0].venue : ''}} {{event.locations[0] ? event.locations[0].address_lane_1 : ''}} {{event.locations[0] ? event.locations[0].address_lane_2 : ''}} {{event.locations[0] ? event.locations[0].city : ''}}</p>
+            <div class="clearfix place-share" *ngIf="event.locations.length > 0">
+              <p>Place : 
+                {{event.locations[0].venue ? event.locations[0].venue + ',' : ''}}
+                {{event.locations[0].lane ? event.locations[0].lane + ',' : ''}}
+                {{event.locations[0].address_lane_1 ? event.locations[0].address_lane_1 + ',' : ''}}
+                {{event.locations[0].address_lane_2 ? event.locations[0].address_lane_2 + ',' : ''}}
+                {{event.locations[0].city ? event.locations[0].city + ',' : ''}}
+                {{event.locations[0].state ? event.locations[0].state + ',' : ''}}
+                {{event.locations[0].country ? event.locations[0].country + ',' : ''}}
+                {{event.locations[0].pin ? event.locations[0].pin : ''}}
+              </p>
               <i class="fa fa-share-alt" aria-hidden="true"></i>
             </div>
             <div class="date-price clearfix">

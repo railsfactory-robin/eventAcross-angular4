@@ -1,75 +1,116 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8">
       <button class="btn btn-primary create-bucket">Create a Bucket</button>
     </div>
-    <div class="col-md-12">
-      <a href="" class="back-arrow"> < Back</a>
+    <div class="col-md-8">
+      <a routerLink="/event_list" class="back-arrow"> < Back</a>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-8">
       <nav class="breadcrumb">
-        <a class="breadcrumb-item" href="#">Home</a>
+        <a class="breadcrumb-item" href="/">Home</a>
         <span class="breadcrumb-item active" *ngIf="event">{{event.name}}</span>
       </nav>
     </div>
-  </div>
-  <div class="row">
+    <div class="col-md-4 btn-grp">
+      <button class="btn btn-success">Joining</button>
+      <button class="btn btn-success">Checklist</button>
+      <button class="btn btn-success"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+    </div>
     <div class="col-md-8" style="margin: 20px 0px;">
       <div class="event-content" *ngIf="event">
         <h5>{{event.name}}</h5>
         <p>{{event.description}}</p>
-        <p class="visit-url">Visit   <a href="">{{event.url}}</a> for more </p>
-        <div class="clearfix place-share" *ngIf="event.locations[0]">
-          <p>Place : {{event.locations[0].lane}} {{event.locations[0].city}}</p>
+        <p class="visit-url">Visit :<a href=""> {{event.url}}</a> for more </p>
+        <div class="clearfix place-share" *ngIf="event.locations.length > 0">
+          <p>Place : 
+            {{event.locations[0].venue ? event.locations[0].venue + ',' : ''}}
+            {{event.locations[0].lane ? event.locations[0].lane + ',' : ''}}
+            {{event.locations[0].address_lane_1 ? event.locations[0].address_lane_1 + ',' : ''}}
+            {{event.locations[0].address_lane_2 ? event.locations[0].address_lane_2 + ',' : ''}}
+            {{event.locations[0].city ? event.locations[0].city + ',' : ''}}
+            {{event.locations[0].state ? event.locations[0].state + ',' : ''}}
+            {{event.locations[0].country ? event.locations[0].country + ',' : ''}}
+            {{event.locations[0].pin ? event.locations[0].pin : ''}}
+          </p>
         </div>
         <div class="date-price clearfix">
           <span>Date : {{event.start_at | date : 'dd/MM/yyyy'}}</span>
           <span class="price">$20</span>
         </div>
+        <div>
+          Tags :
+          <span *ngFor="let tag of event.tag_list" class="tags">
+            {{'#' + tag}}
+          </span>
+        </div>
       </div>
       <div class="row">
-        <div class="col-md-12 btn-group">
-          <button class="btn btn-success">Public comments</button>
-          <button class="btn btn-warning">Private comments</button>
-        </div>
-      </div>
-      <div *ngIf="(comments && comments.public_comments)" class="comment-wrap clearfix">
-        <div class="row" *ngFor="let p of comments.public_comments">
-          <div class="col-md-2">
-            <div class="round-dp">
-              <img src="http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg" alt="no dp">
-            </div>
-          </div>
-          <div class="col-md-10">
-            <div class="comment-box">
-             <p class="comment-body">{{p.body}}</p>
-             <p class="comment-time">{{p.user.email}} - 2:30 am Jan 09th, 2017 </p>
-           </div>
-         </div>
-       </div>
-     </div>
-     <div class="row">
-      <div class="col-md-2">
-        <div class="round-dp">
-          <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/flip.jpg" alt="no dp">
-        </div>
-      </div>
-      <div class="col-md-10">
-        <div class="comment-box">
-        <textarea class="write-comment" rows="3"></textarea>
-       </div>
-     </div>
-     <div class="col-md-4 offset-md-8">
-       <button class="btn btn-primary pull-right">Comment</button>
+        <div class="col-md-12">
+          <ngb-tabset type="pills" (tabChange)="commentMode($event)">
+            <ngb-tab title="Public comments" id="public">
+              <ng-template ngbTabContent>
+                <div *ngIf="(comments && comments.public_comments)" class="comment-wrap clearfix">
+                  <div class="row" *ngFor="let com of comments.public_comments">
+                    <div class="col-md-2">
+                      <div class="round-dp">
+                        <img src="http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg" alt="no dp">
+                      </div>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="comment-box">
+                       <p class="comment-body">{{com.body}}</p>
+                       <p class="comment-time">{{com.user.email}} - 2:30 am Jan 09th, 2017 </p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </ng-template>
+           </ngb-tab>
+           <ngb-tab title="Private comments" id="private">
+            <ng-template ngbTabContent>
+              <div *ngIf="(comments && comments.private_comments)" class="comment-wrap clearfix">
+                <div class="row" *ngFor="let com of comments.private_comments">
+                  <div class="col-md-2">
+                    <div class="round-dp">
+                      <img src="http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg" alt="no dp">
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="comment-box">
+                     <p class="comment-body">{{com.body}}</p>
+                     <p class="comment-time">{{com.user.email}} - 2:30 am Jan 09th, 2017 </p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </ng-template>
+         </ngb-tab>
+       </ngb-tabset>
      </div>
    </div>
+   <div class="row">
+    <div class="col-md-2">
+      <div class="round-dp">
+        <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/flip.jpg" alt="no dp">
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="comment-box">
+        <textarea class="write-comment" rows="3" [(ngModel)]="comment"></textarea>
+      </div>
+    </div>
+    <div class="col-md-4 offset-md-8">
+     <button class="btn btn-primary pull-right" (click)="addComment()">Comment</button>
+   </div>
  </div>
- <div class="col-md-4">
-  <div class="col-md-5 offset-md-7 btn-grp">
+</div>
+<div class="col-md-4">
+<!--   <div class="col-md-5 offset-md-7 btn-grp">
     <button class="btn btn-success">Joining</button>
     <button class="btn btn-success">Checklist</button>
     <button class="btn btn-success"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
-  </div>
+  </div> -->
   <app-otherevents></app-otherevents>
 </div>
 </div>

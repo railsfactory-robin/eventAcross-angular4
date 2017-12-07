@@ -140,6 +140,7 @@
 .place-share p{
   float: left;
   width: 95%;
+  padding-right: 10px;
 }
 .date-price span{
   float: left;

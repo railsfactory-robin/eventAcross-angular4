@@ -10,60 +10,67 @@
       <div *ngIf="mybuckets">
         <div  *ngFor="let bucket of mybuckets.buckets">
           <a class="list-group-item list-group-item-action" (click)="getBucketEvent(bucket.id, bucket.name); sidenav.close()">{{bucket.name}}</a>
-       </div>
-     </div>
-     <a class="list-group-item list-group-item-success">Friend's Buckets</a>
-   </div>
- </mat-sidenav>
-
- <div class="sidenav-content">
-  <button type="button" class="btn btn-success" (click)="sidenav.open()">
-    Your Buckets
-  </button>
-</div>
-
-<div class="container" *ngIf="mybuckets">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="dash-name">
-        <h5>{{bucket_name}}</h5>
-        <button class="btn btn-danger">Bucket Invites</button>
+        </div>
       </div>
+      <a class="list-group-item list-group-item-success">Friend's Buckets</a>
     </div>
-    <div class="col-md-4">
-      <div class="dash-filter">
-        <div class="btn-group">
-          <button class="btn-success">today</button>
-          <button class="btn-warning">week</button>
-          <button class="btn-primary">month</button>
-          <button class="btn-info">year</button>
+  </mat-sidenav>
+
+  <div class="sidenav-content">
+    <button type="button" class="btn btn-success" (click)="sidenav.open()">
+      Your Buckets
+    </button>
+  </div>
+
+  <div class="container" *ngIf="mybuckets">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="dash-name">
+          <h5>{{bucket_name}}</h5>
+          <button class="btn btn-danger">Bucket Invites</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="dash-filter">
+          <div class="btn-group">
+            <button class="btn-success">today</button>
+            <button class="btn-warning">week</button>
+            <button class="btn-primary">month</button>
+            <button class="btn-info">year</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="dash-create-event">
+          <button class="btn btn-danger" (click)="createRoute()">Create an Event</button>        
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="dash-create-event">
-        <button class="btn btn-danger" (click)="createRoute()">Create an Event</button>        
+    <div class="row">
+      <div class="col-md-6 dash-events" *ngFor="let event of events">
+        <div class="other-event-wrap">
+          <button class="btn btn-success">Going</button>
+          <h6>{{event.name}}</h6>
+          <div class="clearfix">
+            <a href="" class="view-more">View More</a>
+            <a href="" class="" class="view-site">View Site</a>
+          </div>
+          <div class="share-icon">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </div>
+          <div class="clearfix place-date">
+            <span class="place" *ngIf="event.locations.length == 0">
+              Place : -
+            </span>
+            <span class="place" *ngIf="event.locations.length > 0">
+              {{event.locations[0].venue ? event.locations[0].venue + ',' : ''}}
+              {{event.locations[0].address_lane_1 ? event.locations[0].address_lane_1 + ',' : ''}}
+              {{event.locations[0].city ? event.locations[0].city : ''}}
+            </span>
+            <span class="date-text">{{event.start_at | date}}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6 dash-events" *ngFor="let event of events">
-      <div class="other-event-wrap">
-        <button class="btn btn-success">Going</button>
-        <h6>{{event.name}}</h6>
-        <div class="clearfix">
-          <a href="" class="view-more">View More</a>
-          <a href="" class="" class="view-site">View Site</a>
-        </div>
-        <div class="share-icon">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </div>
-        <div class="clearfix place-date">
-          <span class="place">Anshoknagar</span>
-          <span class="date-text">01/05/2018</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </mat-sidenav-container>

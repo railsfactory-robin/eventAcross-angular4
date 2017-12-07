@@ -21,6 +21,8 @@ export class EventDetailsComponent implements OnInit {
 
   private event;
   private comments;
+  private comment;
+  private is_public = true;
 
   ngOnInit() {
     this.spinnerService.show();
@@ -42,6 +44,27 @@ export class EventDetailsComponent implements OnInit {
       this.comments = data;
       this.spinnerService.hide();
     })
+  }
+
+  addComment(){
+    if (this.comment) {
+      let com = [];
+      com["body"] = this.comment;
+      com["is_public"] = this.is_public;
+      com["event_id"] = this.event.id;
+      this.eventlist.addComments(com).subscribe(data => {
+        this.getComments(this.event.id);
+        this.comment = '';
+      })
+    }
+  }
+
+  commentMode($event){
+    if ($event.nextId == 'private') {
+      this.is_public = false;
+    }else{
+      this.is_public = true;
+    }
   }
 
 }
