@@ -98,7 +98,7 @@
 .event-content{
   width: 100%;
   line-height: 28px;
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 25px 0px;
   border: 1px solid #ddd;
   padding: 30px 50px;
   background: #fff;
@@ -146,14 +146,16 @@
   float: left;
 }
 .filter-wrap{
-    margin: 40px auto;
+  margin: 40px auto;
 }
 .add-to-bucket{
   text-align: right;
   margin-top: 60%;
 }
 .pagination-wrap{
-  margin: 10px auto;
+  position: absolute;
+  right: -44px;
+  bottom: 0px;
 }
 .spinner{
   text-align: center;

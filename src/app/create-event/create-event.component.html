@@ -42,7 +42,8 @@
               <h3>Create an Event</h3>
             </div>
           </div>
-          <div class="col-md-8 offset-md-2">
+          <div class="white-background col-md-8 offset-md-2">
+          <div class="col-md-12">
             <div class="part-1">
               <h5>1. Event's Basic Information<em>*</em></h5>
               <input type="text" class="form-control" name="event_name" placeholder="Type your title here" [(ngModel)]="event_name" #name="ngModel" required minlength="6">
@@ -58,7 +59,7 @@
               <input type="text" class="form-control" name="url" placeholder="Event Url (Optional)" >
             </div>
           </div>
-          <div class="col-md-8 offset-md-2">
+          <div class="col-md-12">
             <div class="part-2">
               <h5>2. Venue and Date<em>*</em></h5>
               <div *ngIf="address_type">
@@ -124,7 +125,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-8 offset-md-2">
+          <div class="col-md-12">
             <div class="part-3">
               <h5>3. Other Details<em>*</em></h5>
               <div class="col-md-12">
@@ -151,17 +152,18 @@
             </div>
           </div>
         </div>
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
           <div class="row">
             <div class="col-md-12">
               <div class="create-event-actions">
-                <button class="btn btn-info">Preview</button>
+                <button class="btn btn-primary" type="button" (click)="print();">Preview</button>
                 <button type="submit" class="btn btn-success" [disabled]="!createEventForm.form.valid">Create</button>
                 <a href="">Cancel</a>
               </div>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </form>

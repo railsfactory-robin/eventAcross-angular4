@@ -10,12 +10,11 @@
 }
 .part-1, .part-2, .part-3{
 	margin: 0px auto;
-	border-bottom: 2px solid #a0a9a2;
+	border-bottom: 1px solid #f5f5f5;
 	padding: 10px;
 }
 .part-3{
-	border: none;
-	margin-bottom: 20px;
+	min-height: 200px;
 }
 .part-1 h5, .part-2 h5, .part-3 h5{
 	margin:20px 0px;
@@ -45,9 +44,9 @@ em{
 }
 .create-event-actions{
 	text-align: center;
-	margin: 60px 0px;
+	margin: 25px 0px;
 }
-.create-event-actions button{
+.create-event-actions button, .create-event-actions a{
 	margin: 0px 30px
 }
 .address input{
@@ -66,4 +65,9 @@ input{
 }
 .error-message{
 	color: red;
+}
+.white-background{
+	background: #fff;
+	margin: 10px auto 40px;
+	border: 1px solid #f1f1f1;
 }

@@ -96,14 +96,14 @@
             </div>
           </div>
         </div>
-        <div class="pagination-wrap" *ngIf="event_lists">
-          <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="11" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="pageChanged()"></ngb-pagination>
-        </div>
       </div>
       <div [ngClass]=" current_user ? 'col-md-3' : 'col-md-4'">
        <app-otherevents *ngIf="!current_user"></app-otherevents>
        <div class="add-to-bucket" *ngIf="current_user">
         <button (click)="openDialog()" class="btn btn-primary">Add to Bucket</button>
+      </div>
+      <div class="pagination-wrap" *ngIf="event_lists">
+        <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="4" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="pageChanged()"></ngb-pagination>
       </div>
     </div>
   </div>

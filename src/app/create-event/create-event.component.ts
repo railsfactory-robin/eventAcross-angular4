@@ -51,6 +51,10 @@ export class CreateEventComponent implements OnInit {
     })
   }
 
+  print(){
+    window.print();
+  }
+
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogDataExampleDialog, {
       width: '360px',
