@@ -1,110 +1,96 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4 offset-md-4">
-      <div class="search-box-top">
-        <input type="text" name="search" [(ngModel)]="search" placeholder="Type to search an Event" (keyup)="searchEvent(search)">
-        <i class="fa fa-search"></i>
-      </div>
-    </div>
+<div class=" main-image">
+  <div class="inner"> 
+    <h1>Events List</h1>
+    <p>The Madras Crocodile Bank Trust and Centre for Herpetology is a reptile zoo with over 35 species of reptiles, including many endangered ones. </p>
   </div>
+  <div class="search-box">
+    <select class="search-filter">
+      <option>Filter</option>
+    </select>
+    <input type="text" name="search" placeholder="Type to search an Event">
+    <button class="btn-go"><i class="fa fa-search"></i></button>
+  </div>
+</div>
+<div class="container-fluid layout-margin">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <div class="filter-wrap">
-          <div class="btn-group">
-            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-              <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle>Select me</button>
-              <div class="dropdown-menu" ngbDropdownMenu>
-                <button class="dropdown-item">One</button>
-                <button class="dropdown-item">Two</button>
-                <button class="dropdown-item">Four!</button>
-              </div>
-            </div>
+      <div [ngClass]=" current_user ? 'col-md-12' : 'col-md-9'">
+        <div class="white-background">
+          <div class="trending-events">
+            <h5>Events List</h5>
           </div>
-        </div>
-        <div class="filter-wrap">
-          <div class="btn-group">
-            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-              <button class="btn btn-success dropdown-toggle-split" ngbDropdownToggle>Select me</button>
-              <div class="dropdown-menu" ngbDropdownMenu>
-                <button class="dropdown-item">One</button>
-                <button class="dropdown-item">Two</button>
-                <button class="dropdown-item">Four!</button>
-              </div>
-            </div>
+          <div class="pagination-wrap " *ngIf="event_lists">
+            <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="4" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="pageChanged()"></ngb-pagination>
           </div>
-        </div>
-        <div class="filter-wrap">
-          <div class="btn-group">
-            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-              <button class="btn btn-info dropdown-toggle-split" ngbDropdownToggle>Select me</button>
-              <div class="dropdown-menu" ngbDropdownMenu>
-                <button class="dropdown-item">One</button>
-                <button class="dropdown-item">Two</button>
-                <button class="dropdown-item">Four!</button>
+          <div class="card-columns" [ngClass]=" current_user ? 'card-size-4' : 'card-size-3'">
+            <div class="card" *ngFor="let event of event_lists | filter : eventname ">
+              <div class="event-img-wrap">
+                <div class="overlay">
+                  <div class="pretty p-default p-thick p-pulse">
+                    <input *ngIf="current_user" type="checkbox" name="" value="{{event.id}}" (click)="addRemoveEvents(event.id)">
+                    <div class="state p-warning-o">
+                      <label></label>
+                    </div>
+                  </div>
+                  <i class="fa fa-share-alt pull-right" aria-hidden="true"></i>
+                  <button (click)="openDialog()" class="btn-add-to-bucket">Add to Bucket</button>
+                </div>
+                <img class="card-img-top img-fluid" src="assets/images/event1.jpg" alt="Card image cap">
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="filter-wrap">
-          <div class="btn-group">
-            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-              <button class="btn btn-warning dropdown-toggle-split" ngbDropdownToggle>Select me</button>
-              <div class="dropdown-menu" ngbDropdownMenu>
-                <button class="dropdown-item">One</button>
-                <button class="dropdown-item">Two</button>
-                <button class="dropdown-item">Four!</button>
+              <div class="card-block">
+                <h5 class="card-title">{{event.name}}</h5>
+                <p class="card-text">{{event.description}}</p>
+                <p *ngIf="event.locations.length > 0" >Place : 
+                  {{event.locations[0].venue ? event.locations[0].venue + ',' : ''}}
+                  {{event.locations[0].lane ? event.locations[0].lane + ',' : ''}}
+                  {{event.locations[0].address_lane_1 ? event.locations[0].address_lane_1 + ',' : ''}}
+                  {{event.locations[0].address_lane_2 ? event.locations[0].address_lane_2 + ',' : ''}}
+                  {{event.locations[0].city ? event.locations[0].city + ',' : ''}}
+                  {{event.locations[0].state ? event.locations[0].state + ',' : ''}}
+                  {{event.locations[0].country ? event.locations[0].country + ',' : ''}}
+                  {{event.locations[0].pin ? event.locations[0].pin : ''}}
+                </p>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="filter-wrap">
-          <div class="btn-group">
-            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-              <button class="btn btn-danger dropdown-toggle-split" ngbDropdownToggle>Select me</button>
-              <div class="dropdown-menu" ngbDropdownMenu>
-                <button class="dropdown-item">One</button>
-                <button class="dropdown-item">Two</button>
-                <button class="dropdown-item">Four!</button>
+              <div>
+                <button class="view-more" routerLink="{{event.slug}}">View More</button>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Date : {{event.start_at | date : 'dd/MM/yyyy'}}</small>
+                <small class="text-muted pull-right">$20</small>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div [ngClass]=" current_user ? 'col-md-6' : 'col-md-5'">
-        <div class="row"  *ngFor="let event of event_lists | filter : eventname " >
-          <div class="event-content">
-            <input *ngIf="current_user" type="checkbox" name="" value="{{event.id}}" (click)="addRemoveEvents(event.id)">
-            <h5 routerLink="{{event.slug}}">{{event.name}}</h5>
-            <p routerLink="{{event.slug}}">{{event.description}}</p>
-            <div class="clearfix place-share" *ngIf="event.locations.length > 0">
-              <p>Place : 
-                {{event.locations[0].venue ? event.locations[0].venue + ',' : ''}}
-                {{event.locations[0].lane ? event.locations[0].lane + ',' : ''}}
-                {{event.locations[0].address_lane_1 ? event.locations[0].address_lane_1 + ',' : ''}}
-                {{event.locations[0].address_lane_2 ? event.locations[0].address_lane_2 + ',' : ''}}
-                {{event.locations[0].city ? event.locations[0].city + ',' : ''}}
-                {{event.locations[0].state ? event.locations[0].state + ',' : ''}}
-                {{event.locations[0].country ? event.locations[0].country + ',' : ''}}
-                {{event.locations[0].pin ? event.locations[0].pin : ''}}
-              </p>
-              <i class="fa fa-share-alt" aria-hidden="true"></i>
+      <div class="col-md-3" *ngIf="!current_user">
+        <div class="other-event-back">
+       <div class="other-events">
+        <h5>Other Events</h5>
+      </div>
+      <div class="card-columns card-size-1">
+        <div class="card">
+          <div class="event-img-wrap">
+            <div class="overlay">
+              <i class="fa fa-share-alt pull-right" aria-hidden="true"></i>
+              <button class="btn-add-to-bucket joining">Joining?</button>
             </div>
-            <div class="date-price clearfix">
-              <span>Date : {{event.start_at | date : 'dd/MM/yyyy'}}</span>
-              <span class="price">$20</span>
-            </div>
+            <img class="card-img-top img-fluid" src="assets/images/event2.jpg" alt="Card image cap">
+          </div>
+          <div class="card-block">
+            <h5 class="card-title">event name</h5>
+            <p class="card-text">event.description</p>
+          </div>
+          <div>
+            <button class="view-site">View Site</button>
+            <button class="view-more">View More</button>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Date : 12/02/2018</small>
+            <small class="text-muted pull-right">Chennai</small>
           </div>
         </div>
       </div>
-      <div [ngClass]=" current_user ? 'col-md-3' : 'col-md-4'">
-       <app-otherevents *ngIf="!current_user"></app-otherevents>
-       <div class="add-to-bucket" *ngIf="current_user">
-        <button (click)="openDialog()" class="btn btn-primary">Add to Bucket</button>
-      </div>
-      <div class="pagination-wrap" *ngIf="event_lists">
-        <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="4" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="pageChanged()"></ngb-pagination>
-      </div>
+    </div>
     </div>
   </div>
 </div>

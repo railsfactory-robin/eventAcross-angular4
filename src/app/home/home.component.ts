@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ICarouselConfig, AnimationConfig } from 'angular4-carousel';
 import { NgxCarousel } from 'ngx-carousel';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,13 +16,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.carouselTileItems = [
-    'http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg',
-    'https://sheikalthaf.github.io/ngx-carousel/assets/car.png',
-    'https://sheikalthaf.github.io/ngx-carousel/assets/holi.jpg',
-    'https://sheikalthaf.github.io/ngx-carousel/assets/bg.jpg',
-    'https://sheikalthaf.github.io/ngx-carousel/assets/car.png',
-    'https://sheikalthaf.github.io/ngx-carousel/assets/holi.jpg',
-    'https://sheikalthaf.github.io/ngx-carousel/assets/bg.jpg'
+    'assets/images/banner.jpg',
+    'assets/images/banner1.jpg',
+    'assets/images/banner.jpg',
+    'assets/images/banner1.jpg',
+    'assets/images/banner.jpg',
+    'assets/images/banner1.jpg',
+    'assets/images/banner.jpg',
+    'assets/images/banner1.jpg'
     ];
 
     this.carouselTile = {
