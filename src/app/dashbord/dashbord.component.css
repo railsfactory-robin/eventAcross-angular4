@@ -6,8 +6,8 @@
 }
 .dash-filter{
 	margin: 25px auto;
-	width: 100%;
-	border-top: 2px solid #000;
+	width: 90%;
+	border-top: 2px solid #066;
 	text-align: center;
 }
 .dash-filter button{
@@ -84,7 +84,7 @@
 }
 .mat-drawer {
     width: 240px;
-    margin-top: 50px;
+    margin-top: 0px;
     /*padding: 10px;*/
     border: 2px solid #4e4b4b;
 }
@@ -94,4 +94,29 @@
 .list-group-item.active, .list-group-item-success{
 	text-align: center;
     display: block;
+}
+.dash-events{
+    margin: 15px 0px;
+}
+.add-margin{
+    margin: 10px 0px 0px 0px;
+}
+.card-text{
+  color: #4e4d4d;
+  font-size: 15px;
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  max-height: 70px;
+  min-height:70px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+*:focus {
+    outline: none;
 }

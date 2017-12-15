@@ -57,13 +57,12 @@ export class EventListComponent implements OnInit {
     if (!search) {
       this.getEvents(1)
     }else{
-      if(search.length > 2){
-        this.spinnerService.show();
-        this.eventListService.searchEvents(1,search).subscribe(event_list => {
-          this.event_lists = event_list["events"];
-          this.spinnerService.hide();
-        });
-      }
+      this.page = 1;
+      this.spinnerService.show();
+      this.eventListService.searchEvents(1,search).subscribe(event_list => {
+        this.event_lists = event_list["events"];
+        this.spinnerService.hide();
+      });
     }
   }
 

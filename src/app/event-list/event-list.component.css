@@ -305,12 +305,7 @@
   border: 1px solid #eee;
   border-radius: 4px;
 }
-.other-event-back{
-  background: #D7CDC7;
-  padding: 12px;
-  border: 1px solid #eee;
-  border-radius: 4px;
-}
-.other-event-back .joining{
-  margin: 6px 0px 0px 95px;
+.place-details{
+    margin: 10px 0px 0px 0px;
+    color: #274c67;
 }

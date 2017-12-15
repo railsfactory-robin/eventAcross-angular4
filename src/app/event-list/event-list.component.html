@@ -7,8 +7,8 @@
     <select class="search-filter">
       <option>Filter</option>
     </select>
-    <input type="text" name="search" placeholder="Type to search an Event">
-    <button class="btn-go"><i class="fa fa-search"></i></button>
+    <input type="text" name="search" placeholder="Type to search an Event" [(ngModel)]="search">
+    <button class="btn-go" (click)="searchEvent(search)"><i class="fa fa-search"></i></button>
   </div>
 </div>
 <div class="container-fluid layout-margin">
@@ -40,7 +40,7 @@
               <div class="card-block">
                 <h5 class="card-title">{{event.name}}</h5>
                 <p class="card-text">{{event.description}}</p>
-                <p *ngIf="event.locations.length > 0" >Place : 
+                <p class="card-text place-details" *ngIf="event.locations.length > 0" >Place : 
                   {{event.locations[0].venue ? event.locations[0].venue + ',' : ''}}
                   {{event.locations[0].lane ? event.locations[0].lane + ',' : ''}}
                   {{event.locations[0].address_lane_1 ? event.locations[0].address_lane_1 + ',' : ''}}
@@ -63,37 +63,10 @@
         </div>
       </div>
       <div class="col-md-3" *ngIf="!current_user">
-        <div class="other-event-back">
-       <div class="other-events">
-        <h5>Other Events</h5>
+        <app-otherevents></app-otherevents>
       </div>
-      <div class="card-columns card-size-1">
-        <div class="card">
-          <div class="event-img-wrap">
-            <div class="overlay">
-              <i class="fa fa-share-alt pull-right" aria-hidden="true"></i>
-              <button class="btn-add-to-bucket joining">Joining?</button>
-            </div>
-            <img class="card-img-top img-fluid" src="assets/images/event2.jpg" alt="Card image cap">
-          </div>
-          <div class="card-block">
-            <h5 class="card-title">event name</h5>
-            <p class="card-text">event.description</p>
-          </div>
-          <div>
-            <button class="view-site">View Site</button>
-            <button class="view-more">View More</button>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Date : 12/02/2018</small>
-            <small class="text-muted pull-right">Chennai</small>
-          </div>
-        </div>
-      </div>
-    </div>
     </div>
   </div>
-</div>
 </div>
 <style>
 .my-pagination /deep/ .ngx-pagination {

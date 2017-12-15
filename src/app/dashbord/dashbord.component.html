@@ -24,50 +24,51 @@
 
   <div class="container" *ngIf="mybuckets">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="dash-name">
           <h5>{{bucket_name}}</h5>
           <button class="btn btn-danger">Bucket Invites</button>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <div class="dash-filter">
           <div class="btn-group">
-            <button class="btn-success">today</button>
-            <button class="btn-warning">week</button>
-            <button class="btn-primary">month</button>
-            <button class="btn-info">year</button>
+            <button [ngClass]="today ? 'btn-success' : 'btn-primary' " (click)="dashboardFilter('today')">today</button>
+            <button [ngClass]="this_week ? 'btn-success' : 'btn-primary' "(click)="dashboardFilter('this_week')">week</button>
+            <button [ngClass]="this_month ? 'btn-success' : 'btn-primary' "(click)="dashboardFilter('this_month')">month</button>
+            <button [ngClass]="this_year ? 'btn-success' : 'btn-primary' "(click)="dashboardFilter('this_year')">year</button>
+            <button class="btn-primary" (click)="clearFilter()">Clear</button>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="dash-create-event">
           <button class="btn btn-danger" (click)="createRoute()">Create an Event</button>        
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 dash-events" *ngFor="let event of events">
-        <div class="other-event-wrap">
-          <button class="btn btn-success">Going</button>
-          <h6>{{event.name}}</h6>
-          <div class="clearfix">
-            <a href="" class="view-more">View More</a>
-            <a href="" class="" class="view-site">View Site</a>
-          </div>
-          <div class="share-icon">
-            <i class="fa fa-share-alt" aria-hidden="true"></i>
-          </div>
-          <div class="clearfix place-date">
-            <span class="place" *ngIf="event.locations.length == 0">
-              Place : -
-            </span>
-            <span class="place" *ngIf="event.locations.length > 0">
-              {{event.locations[0].venue ? event.locations[0].venue + ',' : ''}}
-              {{event.locations[0].address_lane_1 ? event.locations[0].address_lane_1 + ',' : ''}}
-              {{event.locations[0].city ? event.locations[0].city : ''}}
-            </span>
-            <span class="date-text">{{event.start_at | date}}</span>
+      <div class="col-md-3 dash-events" *ngFor="let event of events">
+        <div class="card-deck">
+          <div class="card">
+            <img class="card-img-top img-fluid" src="assets/images/event5.jpg" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">{{event.name}}</h4>
+              <p class="card-text">{{event.description}}</p>
+              <p class="add-margin">
+                <a href="event_list/{{event.slug}}">View More</a>
+                <a href="{{event.url}}" class="pull-right">View site</a>
+              </p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"> Place :
+                <span class="place" *ngIf="event.locations.length > 0">
+                  {{event.locations[0].venue ? event.locations[0].venue + ',' : ''}}
+                  {{event.locations[0].address_lane_1 ? event.locations[0].address_lane_1 + ',' : ''}}
+                  {{event.locations[0].city ? event.locations[0].city : ''}}
+                </span>
+              </small>
+            </div>
           </div>
         </div>
       </div>
