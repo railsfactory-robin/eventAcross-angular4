@@ -76,6 +76,7 @@ export class EventListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getEvents(this.page);
     });
   }
 
@@ -151,9 +152,11 @@ export class DialogDataExampleDialog implements OnInit{
 
   createBucket(){
     this.eventListService.createBuckets(this.bucket_name).subscribe(data => {
-      console.log(data)
       this.buckets.push({id: data["bucket"].id, name: data["bucket"].name})
       this.openCreateBucket();
+      if (this.events_added.length < 1) {
+        this.onNoClick();
+      }
     })
   }
 

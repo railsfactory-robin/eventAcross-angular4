@@ -1,120 +1,256 @@
 .create-bucket{
-	margin-top: 10px;
+  margin: 20px 0;
 }
 .back-arrow{
-	margin: 20px 0px;
-	display: inline-block;
+  margin: 20px 0px;
+  display: inline-block;
 }
 .breadcrumb{
-	background-color: transparent;
-	padding: 0px;
+  background-color: transparent;
+  padding: 0px;
+  margin: 20px 0;
 }
 .breadcrumb-item+.breadcrumb-item::before {
-	content: "<";
+  content: ">";
 }
 .breadcrumb-item.active {
-	display:inline-block;
-	width:100px;
-	white-space: nowrap;
-	overflow:hidden !important;
-	text-overflow: ellipsis;
+  display:inline-block;
+  width:150px;
+  white-space: nowrap;
+  overflow:hidden !important;
+  text-overflow: ellipsis;
 }
 .event-content{
-    line-height: 28px;
-    margin: 0px 0px 50px 0px;
-    text-align: justify;
-    width: 100%;
-    background: #fff;
-    padding: 30px;
-    box-shadow: 0px 0px 4px 1px black;
-    border-radius: 4px;
+  line-height: 28px;
+  margin: 0px 0px 50px 0px;
+  text-align: justify;
+  width: 100%;
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0px 0px 4px 1px black;
+  border-radius: 4px;
 }
 .event-content h5{
-	margin-bottom: 15px;
-    text-transform: uppercase;
-    color: #1185d6;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #1185d6;
 }
 .date-price .price{
-	float: left;
-	margin-left: 70px;
-	margin-bottom: 7px;
+  float: left;
+  margin-left: 70px;
+  margin-bottom: 7px;
 }
 .date-price span{
-	float: left;
+  float: left;
 }
 .visit-url{
-	margin: 10px 0px;
+  margin: 10px 0px;
 }
 .btn-grp button{
-	margin: 10px 6px;
-    width: 100px;
+  margin: 10px 6px;
+  width: 100px;
 }
 .btn-grp button .fa-share-alt{
-	color: #fff !important;
+  color: #fff !important;
 }
 .round-dp{
-	background: red;
-	width: 80px;
-	border: 1px solid;
-	border-radius: 50%;
-	height: 80px;
-	margin: 30px 0px;
+  background: red;
+  width: 70px;
+  border: 1px solid;
+  border-radius: 50%;
+  height: 70px;
+  margin: 30px 0px;
 }
 .round-dp img{
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 .comment-box{
-	margin: 30px 0px;
-	border: 2px solid #000;
-	border-radius: 10px;
-	position: relative;
-	padding: 0px 20px;
-	background-color: #FFFFFF;
-	min-height: 80px;
-	box-shadow:1px 1px 5px rgba(0,0,0,.2);
+  margin: 30px 0px 20px -44px;
+  border-radius: 10px;
+  position: relative;
+  padding: 0px 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #dde;  
+  
+  min-height: 80px;
 
 }
-.comment-box:before {
-    content: '';
-    position: absolute;
-    top: 24px;
-    left: -14px;
-    width: 26px;
-    height: 26px;
-    background: #FFFFFF;
-    border-right: 2px solid #000000;
-    border-bottom: 2px solid #000000;
-    -moz-transform: rotate(-90deg);
-    -webkit-transform: rotate(-225deg);
+.comment-box:hover{
+  box-shadow: 2px 2px 2px rgba(0,0,0,.2);
 }
 .comment-box .comment-time{
-	position: absolute;
-    right: 8px;
-    bottom: 3px;
-    font-size: 12px;
-}
-.comment-wrap{
-	 max-height:400px;
-	 overflow-y:auto; 
-	 overflow-x:hidden; 
-	 margin-top: 20px;
+  position: absolute;
+  right: 8px;
+  bottom: 3px;
+  font-size: 12px;
 }
 .write-comment{
-	border: none;
-	margin-top: 5px; 
-	width: 100%;
+  border: none;
+  margin-top: 5px; 
+  width: 100%;
 }
 .comment-body{
-	margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 .tags{
-	color: #1185d6;
-    font-style: italic;
-    cursor: pointer;
-    padding: 2px;
+  color: #1185d6;
+  font-style: italic;
+  cursor: pointer;
+  padding: 2px;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  padding: 6px 10px;
+  margin-left: 10px;
 }
 .tags:hover{
-	text-decoration: underline;
+  box-shadow: 2px 0px 1px 1px #afacac;
+}
+.card-size-1{
+  column-count: 1 !important;
+}
+.card-title{
+  color: green;
+}
+.card-text{
+  color: #343838;
+  text-align: justify;
+  font-size: 15px;
+}
+.event-deail-header{
+  text-align: center;
+  padding: 16px;
+  background: #f1f1f1;
+  border-bottom: 1px solid #eee;
+}
+.event-deail-header h1{
+  color: #6a73d8;
+  text-transform: uppercase;
+  font-family: serif;
+  font-weight: 600;
+  margin: 0px auto;
+  padding: 10px 0;
+}
+.comment-wrap-outer{
+  background: #eee;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.comment-wrap {
+  padding: 50px;
+  margin: 10px auto 30px;
+  background: #fff;
+  border: 1px solid #dee;
+}
+
+.comment-wrap section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+  max-height:400px;
+  overflow-y:auto; 
+  overflow-x:hidden;  
+}
+
+.comment-wrap #tab1, .comment-wrap #tab2 {
+  display: none;
+}
+
+.comment-wrap label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+.comment-wrap label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.comment-wrap label[for*='1']:before { content: '\f1cb'; }
+.comment-wrap label[for*='2']:before { content: '\f17d'; }
+.comment-wrap label[for*='3']:before { content: '\f16b'; }
+.comment-wrap label[for*='4']:before { content: '\f1a9'; }
+
+.comment-wrap label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+.comment-wrap input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid orange;
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}
+.comment-add{
+  text-align: right;
+}
+.commenting{
+  border-top: 1px solid #dde;
+}
+.address{
+  color: #686898;
+  margin-top: 10px;
+  font-style: italic;
+}
+#content1::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+#content1::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #fff;
+}
+
+#content1::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #ddd;
+}
+#content2::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+#content2::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #fff;
+}
+
+#content2::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #ddd;
+}
+.no-access{
+  text-align: center;
+  padding: 10px;
+  margin: 70px 0px;
+  color: #656161;
 }

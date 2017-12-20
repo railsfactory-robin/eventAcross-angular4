@@ -5,7 +5,7 @@
   <div class="card-columns card-size-1">
     <div class="card">
       <div class="event-img-wrap">
-        <div class="overlay">
+        <div class="overlay" *ngIf="current_user">
           <i class="fa fa-share-alt pull-right" aria-hidden="true"></i>
           <button class="btn-add-to-bucket joining">Joining?</button>
         </div>

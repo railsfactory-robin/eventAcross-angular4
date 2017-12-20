@@ -1,9 +1,9 @@
 .other-event-back{
   background: #E6ECF0;
   padding: 13px;
-  border: 2px solid #f1f1f1;
+  border: 2px solid #eee;
   border-radius: 4px;
-  box-shadow: 0 0 6px 2px #B7AFD8;
+  /*box-shadow: 0 0 6px 2px #B7AFD8;*/
 }
 .event-img-wrap{
   position: relative;
@@ -104,8 +104,8 @@
   border-bottom: 4px solid #d80233;
   display: inline-block;
   padding: 7px 0px;
-  color: #ffffff;
-  text-shadow: 4px 1px 8px black;
+  color: #585757;
+  /*text-shadow: 4px 1px 8px black;*/
 }
 .card-columns{
   margin-top: 20px;

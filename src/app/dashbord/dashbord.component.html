@@ -48,9 +48,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-3 dash-events" *ngFor="let event of events">
-        <div class="card-deck">
-          <div class="card">
+      <div class="col-md-12 dash-events" >
+        <div class="card-columns" >
+          <div class="card" *ngFor="let event of events">
             <img class="card-img-top img-fluid" src="assets/images/event5.jpg" alt="Card image cap">
             <div class="card-block">
               <h4 class="card-title">{{event.name}}</h4>

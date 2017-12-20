@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
-
 @Component({
   selector: 'app-event-details',
   templateUrl: './event-details.component.html',
@@ -22,9 +21,13 @@ export class EventDetailsComponent implements OnInit {
   private event;
   private comments;
   private comment;
-  private is_public = true;
+  private is_public = "true";
+  private current_user;
 
   ngOnInit() {
+    if (localStorage.getItem('current_user')) {
+      this.current_user = JSON.parse(localStorage.getItem('current_user'));
+    }
     this.spinnerService.show();
     this.getEvent();
   }
@@ -58,13 +61,4 @@ export class EventDetailsComponent implements OnInit {
       })
     }
   }
-
-  commentMode($event){
-    if ($event.nextId == 'private') {
-      this.is_public = false;
-    }else{
-      this.is_public = true;
-    }
-  }
-
 }

@@ -5,7 +5,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { EventListService } from './../event-list/event-list.service'
 import {DialogDataExampleDialog} from './../event-list/event-list.component'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 
@@ -35,7 +35,8 @@ export class CreateEventComponent implements OnInit {
   constructor(private eventListService: EventListService,
    private spinnerService: Ng4LoadingSpinnerService,
    public dialog: MatDialog,
-   private route: ActivatedRoute) { }
+   private route: ActivatedRoute,
+   private router: Router) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -65,6 +66,7 @@ export class CreateEventComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.ngOnInit();
     });
   }
 

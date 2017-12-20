@@ -25,7 +25,7 @@
           <div class="card-columns" [ngClass]=" current_user ? 'card-size-4' : 'card-size-3'">
             <div class="card" *ngFor="let event of event_lists | filter : eventname ">
               <div class="event-img-wrap">
-                <div class="overlay">
+                <div class="overlay" *ngIf="current_user">
                   <div class="pretty p-default p-thick p-pulse">
                     <input *ngIf="current_user" type="checkbox" name="" value="{{event.id}}" (click)="addRemoveEvents(event.id)">
                     <div class="state p-warning-o">

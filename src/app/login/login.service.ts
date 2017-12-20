@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import { Subject } from 'rxjs/Subject';
-
 import 'rxjs/add/operator/toPromise';
+import { environment } from './../common/config/env.config';
 
 
 @Injectable()
@@ -17,7 +17,7 @@ export class LoginService {
   getUser(username,password){
     const params = {username: username ,password: password};
     let promise = new Promise((resolve, reject) => {
-      this.http.post('http://api.eventsacross-stage.railsfactory.com/api/v1/users/signin',params)
+      this.http.post(environment.rootUrl+'/api/v1/users/signin',params)
       .toPromise()
       .then(
         res => {
